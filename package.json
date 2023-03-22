@@ -10,16 +10,25 @@
     "Programming Languages"
   ],
   "contributes": {
-    "languages": [{
-      "id": "lispbm",
-      "aliases": ["LispBM", "lispbm"],
-      "extensions": [".lisp"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "lispbm",
-      "scopeName": "",
-      "path": "./syntaxes/lispbm.tmLanguage.json"
-    }]
+    "languages": [
+      {
+        "id": "lispbm",
+        "aliases": [
+          "LispBM",
+          "lispbm"
+        ],
+        "extensions": [
+          ".lisp"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "lispbm",
+        "scopeName": "source.lispbm",
+        "path": "./syntaxes/lispbm.tmLanguage.json"
+      }
+    ]
   }
 }

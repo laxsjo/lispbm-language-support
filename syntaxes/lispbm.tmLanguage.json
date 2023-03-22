@@ -10,11 +10,34 @@
 		}
 	],
 	"repository": {
+		"comments": {
+			"name": "comment.line.semicolon.lispbm",
+			"match": "(;).*$\n?",
+			"captures": {
+				"1": {
+					"name": "punctuation.definition.comment.lispbm"
+				}
+			}
+		},
+		"functions": {
+			"name": "meta.function.lisp",
+			"match": "(?:\\()(defgeneric|define-compiler-macro|define-method-combination|define-modify-macro|define-setf-expander|defmacro|defmethod|defsetf|defun|define-\\S+)\\s+((?:\\w|[+\\-<>/*&=.?!$%:@\\[\\]^{}~#|])+)",
+			"captures": {
+				"1": {
+					"name": "storage.type.function-type.lisp"
+				},
+				"2": {
+					"name": "entity.name.function.lisp"
+				}
+			}
+		},
 		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.lispbm",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
+			"patterns": [
+				{
+					"name": "keyword.control.lispbm",
+					"match": "\\b(if|while|for|return)\\b"
+				}
+			]
 		},
 		"strings": {
 			"name": "string.quoted.double.lispbm",
@@ -26,7 +49,8 @@
 					"match": "\\\\."
 				}
 			]
-		}
+		},
+		"whatever": {}
 	},
-	"scopeName": ""
+	"scopeName": "source.lispbm"
 }
