@@ -3,39 +3,199 @@
 	"name": "LispBM",
 	"patterns": [
 		{
-			"include": "#keywords"
+			"include": "#expressions"
 		},
 		{
-			"include": "#strings"
+			"include": "#function-lists"
+		},
+		{
+			"include": "#quoted-lists"
 		}
 	],
 	"repository": {
-		"comments": {
-			"name": "comment.line.semicolon.lispbm",
-			"match": "(;).*$\n?",
-			"captures": {
-				"1": {
-					"name": "punctuation.definition.comment.lispbm"
-				}
-			}
-		},
-		"functions": {
-			"name": "meta.function.lisp",
-			"match": "(?:\\()(defgeneric|define-compiler-macro|define-method-combination|define-modify-macro|define-setf-expander|defmacro|defmethod|defsetf|defun|define-\\S+)\\s+((?:\\w|[+\\-<>/*&=.?!$%:@\\[\\]^{}~#|])+)",
-			"captures": {
-				"1": {
-					"name": "storage.type.function-type.lisp"
-				},
-				"2": {
-					"name": "entity.name.function.lisp"
-				}
-			}
-		},
-		"keywords": {
+		"expressions": {
 			"patterns": [
 				{
-					"name": "keyword.control.lispbm",
-					"match": "\\b(if|while|for|return)\\b"
+					"include": "#defun-defs"
+				},
+				{
+					"include": "#keywords"
+				},
+				{
+					"include": "#pseudo-keywords"
+				},
+				{
+					"include": "#operators"
+				},
+				{
+					"include": "#lang-constants"
+				},
+				{
+					"include": "#function-names"
+				},
+				{
+					"include": "#quoted-symbol"
+				},
+				{
+					"include": "#symbol"
+				},
+				{
+					"include": "#strings"
+				},
+				{
+					"include": "#numbers"
+				},
+				{
+					"include": "#macro-defs"
+				},
+				{
+					"include": "#quoted-lists"
+				},
+				{
+					"include": "#lists"
+				},
+				{
+					"include": "#comments"
+				}
+			]
+		},
+		"lists": {
+			"name": "meta.list.function.lispbm",
+			"begin": "\\(",
+			"end": "\\)",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.paren.begin.lispbm"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.paren.end.lispbm"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#expressions"
+				}
+			]
+		},
+		"quoted-lists": {
+			"name": "meta.list.quoted.lispbm",
+			"begin": "(`|')(\\()",
+			"end": "\\)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.operator.lispbm"
+				},
+				"2": {
+					"name": "punctuation.paren.begin.lispbm"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.paren.end.lispbm"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#expressions"
+				}
+			]
+		},
+		"macro-defs": {
+			"name": "meta.list.macro.lispbm",
+			"begin": "(\\()(macro)\\s+(\\()([a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*)(?:\\s+([a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*))*(\\))",
+			"end": "\\)",
+			"beginCaptures": {
+				"1": {
+					"name": "punctuation.paren.begin.lispbm"
+				},
+				"2": {
+					"name": "keyword.control.special-form.lispbm"
+				},
+				"3": {
+					"name": "punctuation.paren.begin.lispbm"
+				},
+				"4": {
+					"name": "variable.parameter.lispbm"
+				},
+				"5": {
+					"name": "variable.parameter.lispbm"
+				},
+				"6": {
+					"name": "punctuation.paren.end.lispbm"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.paren.end.lispbm"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#expressions"
+				}
+			]
+		},
+		"defun-defs": {
+			"name": "meta.function.lispbm",
+			"begin": "(?<=\\()(defun)\\s+([a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*)\\s+(\\()([a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*)(?:\\s+([a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*))*(\\))",
+			"end": "(?=\\))",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.control.pseudo.lispbm"
+				},
+				"2": {
+					"name": "entity.name.function.lispbm"
+				},
+				"3": {
+					"name": "punctuation.paren.begin.lispbm"
+				},
+				"4": {
+					"name": "variable.parameter.lispbm"
+				},
+				"5": {
+					"name": "variable.parameter.lispbm"
+				},
+				"6": {
+					"name": "punctuation.paren.end.lispbm"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#expressions"
+				}
+			]
+		},
+		"symbol": {
+			"name": "variable.other.lispbm",
+			"match": "(?<=^|\\s|,|\\(|\\[)[a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*(?=$|\\s|\\)|\\])"
+		},
+		"quoted-symbol": {
+			"name": "variable.other.constant.lispbm",
+			"match": "(?<=^|\\s|,|\\(|\\[)'[a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*(?=$|\\s|\\)|\\])"
+		},
+		"function-names": {
+			"name": "entity.name.function.lispbm",
+			"match": "(?<=^|\\()[a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*(?=\\s|\\))"
+		},
+		"keywords": {
+			"name": "keyword.control.special-form.lispbm",
+			"match": "(?<=^|\\s|\\(|\\[)(?:if|lambda|let|var|define|progn|read|match|macro|call-cc|recv|cond)(?=$|\\s|\\)|\\])"
+		},
+		"pseudo-keywords": {
+			"name": "keyword.control.pseudo.lispbm",
+			"match": "(?<=^|\\s|\\(|\\[)(?:def|defun|fn|setvar|set|setq|looprange|loopwhile|spawn|spawn-trap|wait|yield|atomic|eval|eval-program|read-program|car|cons|list|length|range|append|ix|setix|setcar|setcdr|acons|assoc|cossa|setassoc|array-create|array-size|array-write|array-clear|match)(?=$|\\s|\\)|\\])"
+		},
+		"operators": {
+			"patterns": [
+				{
+					"name": "keyword.operator.lispbm",
+					"match": "(?<=^|\\s|\\(|\\[)(?:and|or|not|\\+|-|\\*|\\/|mod|=|!=|eq|not-eq|>|<|>=|<=|not|shl|shr|type-of|\\?)"
+				},
+				{
+					"name": "keyword.operator.lispbm",
+					"match": "\\s\\.\\s"
 				}
 			]
 		},
@@ -46,11 +206,27 @@
 			"patterns": [
 				{
 					"name": "constant.character.escape.lispbm",
-					"match": "\\\\."
+					"match": "\\[a-z\"\\\\]"
 				}
 			]
 		},
-		"whatever": {}
+		"numbers": {
+			"name": "constant.numeric.lispbm",
+			"match": "\\b(?:[0-9]+\\.?[0-9]*|0x[0-9a-fA-F]+)\\b"
+		},
+		"lang-constants": {
+			"name": "constant.language",
+			"match": "\\b(?:t|f|nil)\\b"
+		},
+		"comments": {
+			"name": "comment.line.semicolon.lispbm",
+			"match": "(;).*$\n?",
+			"captures": {
+				"1": {
+					"name": "punctuation.definition.comment.lispbm"
+				}
+			}
+		}
 	},
 	"scopeName": "source.lispbm"
 }
