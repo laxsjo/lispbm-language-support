@@ -18,7 +18,8 @@
           "lispbm"
         ],
         "extensions": [
-          ".lisp"
+          ".lisp",
+          ".lispbm"
         ],
         "configuration": "./language-configuration.json"
       }
