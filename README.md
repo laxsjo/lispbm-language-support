@@ -1,4 +1,4 @@
-# lispbm-language-support README
+# LispBM language support
 
 This brings basic language support for the lispBM language to vscode.
 
@@ -6,11 +6,11 @@ This brings basic language support for the lispBM language to vscode.
 language in the lisp family designed to be run on microcontrollers.
 
 This is the first real extention I write for vscode, so don't put too much
-faith in this package.
+faith in this extension.
 
 ## Features
 
-This package adds the new language `LispBM`.
+This extension adds the new language `LispBM`.
 
 The primary feature are the provided Textmate grammar definitions.
 This means that basic syntax highlighting is supported (no [semantic highlighting](https://code.visualstudio.com/api/language-extensions/semantic-highlight-guide)!).
@@ -28,11 +28,11 @@ For example if there is an image subfolder under your extension project workspac
 
 ## Requirements
 
-This package has no requirements, just install and enjoy! :)
+This extension has no requirements, just install and enjoy! :)
 
 ## Extension Settings
 
-There are no extensions for this package.
+There are no settings for this extension.
 
 <!-- Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
 
@@ -55,4 +55,4 @@ Calling out known issues can help limit users opening duplicate issues against y
 
 ### 0.0.1
 
-Initial release of the package
+Initial release of the extension.
