@@ -1,65 +1,58 @@
 # lispbm-language-support README
 
-This is the README for your extension "lispbm-language-support". After writing up a brief description, we recommend including the following sections.
+This brings basic language support for the lispBM language to vscode.
+
+[LispBM](https://github.com/svenssonjoel/lispBM) is a functional programming
+language in the lisp family designed to be run on microcontrollers.
+
+This is the first real extention I write for vscode, so don't put too much
+faith in this package.
 
 ## Features
 
+This package adds the new language `LispBM`.
+
+The primary feature are the provided Textmate grammar definitions.
+This means that basic syntax highlighting is supported (no [semantic highlighting](https://code.visualstudio.com/api/language-extensions/semantic-highlight-guide)!).
+
+Bracket definitions are also provided.
+
+<!--
 Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
 
 For example if there is an image subfolder under your extension project workspace:
 
 \!\[feature X\]\(images/feature-x.png\)
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow. -->
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+This package has no requirements, just install and enjoy! :)
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+There are no extensions for this package.
+
+<!-- Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
 
 For example:
 
 This extension contributes the following settings:
 
 * `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+* `myExtension.thing`: Set to `blah` to do something. -->
 
 ## Known Issues
 
 Calling out known issues can help limit users opening duplicate issues against your extension.
 
+-   Only the first and last parameters in macro and function definitions get
+    proper syntax highlighting.
+-   `cond` blocks don't have proper syntax highlighting.
+
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+### 0.0.1
 
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Initial release of the package
