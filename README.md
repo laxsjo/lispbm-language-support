@@ -59,5 +59,6 @@ Initial release of the extension.
 
 ### 0.1.0
 
-Change line comments from `;;` to single `;`. This seems to fix an issue where
-bracket pair colorization would colorize brackets in comments.
+-   Changed line comments from `;;` to single `;`. This seems to fix an issue where
+    bracket pair colorization would colorize brackets in comments.
+-   Added default file icon
