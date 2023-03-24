@@ -2,7 +2,7 @@
 
 All notable changes to the "lispbm-language-support" extension will be documented in this file.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+<!-- Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file. -->
 
 ## 0.0.1
 
@@ -23,3 +23,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 -   Fixed all function related parameter lists. This included also adding
     recognition for `fn` and `lambda` expressions as functions, so that their
     parameter lists got changed properly.
+
+## 0.2.0
+
+-   Add indentation to language config. Pressing enter will now auto indent more often.

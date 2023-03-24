@@ -53,6 +53,8 @@ Calling out known issues can help limit users opening duplicate issues against y
 
 ## Release Notes
 
+See [CHANGELOG.md](CHANGELOG.md) for more details
+
 ### 0.0.1
 
 Initial release of the extension.
@@ -68,3 +70,8 @@ Initial release of the extension.
 -   Fixed a lot of syntax grammar issues, including broken quoted lists, and supporting
     inserting function expressions into quasi-quoted lists, and lots of function
     parameter list improvements.
+
+### 0.2.0
+
+-   Add indentation to language config. Pressing enter will now auto indent more
+    often.
