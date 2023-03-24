@@ -56,3 +56,8 @@ Calling out known issues can help limit users opening duplicate issues against y
 ### 0.0.1
 
 Initial release of the extension.
+
+### 0.1.0
+
+Change line comments from `;;` to single `;`. This seems to fix an issue where
+bracket pair colorization would colorize brackets in comments.
