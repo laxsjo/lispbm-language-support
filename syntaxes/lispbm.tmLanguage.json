@@ -217,6 +217,9 @@
 			"patterns": [
 				{
 					"include": "#let-bindings"
+				},
+				{
+					"include": "#comments"
 				}
 			]
 		},
@@ -246,6 +249,9 @@
 				},
 				{
 					"include": "#variable-names"
+				},
+				{
+					"include": "#comments"
 				}
 			]
 		},
@@ -275,6 +281,9 @@
 						},
 						{
 							"include": "#operators"
+						},
+						{
+							"include": "#comments"
 						}
 					]
 				}
@@ -307,6 +316,9 @@
 					"patterns": [
 						{
 							"include": "#parameters"
+						},
+						{
+							"include": "#comments"
 						}
 					]
 				},
@@ -344,6 +356,9 @@
 					"patterns": [
 						{
 							"include": "#parameters"
+						},
+						{
+							"include": "#comments"
 						}
 					]
 				},
@@ -379,6 +394,9 @@
 					"patterns": [
 						{
 							"include": "#parameters"
+						},
+						{
+							"include": "#comments"
 						}
 					]
 				},

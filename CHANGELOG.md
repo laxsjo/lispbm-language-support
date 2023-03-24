@@ -27,3 +27,4 @@ All notable changes to the "lispbm-language-support" extension will be documente
 ## 0.2.0
 
 -   Add indentation to language config. Pressing enter will now auto indent more often.
+-   Fixed comments not being detected in `let` and parameter list expressions
