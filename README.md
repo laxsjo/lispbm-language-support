@@ -65,5 +65,6 @@ Initial release of the extension.
 
 ### 0.1.1
 
--   Fixed syntax grammar issues, including broken quoted lists, and supporting
-    inserting function expressions into quasi-quoted lists
+-   Fixed a lot of syntax grammar issues, including broken quoted lists, and supporting
+    inserting function expressions into quasi-quoted lists, and lots of function
+    parameter list improvements.

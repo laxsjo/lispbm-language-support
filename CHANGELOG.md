@@ -18,3 +18,8 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 -   Fixed syntax grammar issues, including broken quoted lists, and supporting
     inserting function expressions into quasi-quoted lists
+-   Added grammar for `let`. It should now detect variable names in the binding
+    list.
+-   Fixed all function related parameter lists. This included also adding
+    recognition for `fn` and `lambda` expressions as functions, so that their
+    parameter lists got changed properly.

@@ -16,7 +16,13 @@
 		"expressions": {
 			"patterns": [
 				{
+					"include": "#macro-defs"
+				},
+				{
 					"include": "#defun-defs"
+				},
+				{
+					"include": "#lambda-defs"
 				},
 				{
 					"include": "#keywords"
@@ -46,7 +52,7 @@
 					"include": "#numbers"
 				},
 				{
-					"include": "#macro-defs"
+					"include": "#let-bindings-lists"
 				},
 				{
 					"include": "#quoted-lists"
@@ -62,7 +68,13 @@
 		"quoted-expressions": {
 			"patterns": [
 				{
+					"include": "#macro-defs"
+				},
+				{
 					"include": "#defun-defs"
+				},
+				{
+					"include": "#lambda-defs"
 				},
 				{
 					"include": "#keywords"
@@ -87,9 +99,6 @@
 				},
 				{
 					"include": "#numbers"
-				},
-				{
-					"include": "#macro-defs"
 				},
 				{
 					"include": "#inserted-lists"
@@ -126,7 +135,7 @@
 			]
 		},
 		"quoted-child-lists": {
-			"name": "meta.list.function.lispbm",
+			"name": "meta.list.quoted.lispbm",
 			"begin": "\\(",
 			"end": "\\)",
 			"beginCaptures": {
@@ -191,28 +200,13 @@
 				}
 			]
 		},
-		"macro-defs": {
-			"name": "meta.list.macro.lispbm",
-			"begin": "(\\()(macro)\\s+(\\()(?:([a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*)(?:\\s+([a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*))*)?(\\))",
+		"let-bindings-lists": {
+			"name": "meta.list.let.bindings.lispbm",
+			"begin": "(?<=let\\s+)(\\()",
 			"end": "\\)",
 			"beginCaptures": {
 				"1": {
 					"name": "punctuation.paren.begin.lispbm"
-				},
-				"2": {
-					"name": "keyword.control.special-form.lispbm"
-				},
-				"3": {
-					"name": "punctuation.paren.begin.lispbm"
-				},
-				"4": {
-					"name": "variable.parameter.lispbm"
-				},
-				"5": {
-					"name": "variable.parameter.lispbm"
-				},
-				"6": {
-					"name": "punctuation.paren.end.lispbm"
 				}
 			},
 			"endCaptures": {
@@ -222,35 +216,172 @@
 			},
 			"patterns": [
 				{
+					"include": "#let-bindings"
+				}
+			]
+		},
+		"let-bindings": {
+			"name": "meta.list.let.binding.lispbm",
+			"begin": "\\(",
+			"end": "\\)",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.paren.begin.lispbm"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.paren.end.lispbm"
+				}
+			},
+			"patterns": [
+				{
+					"begin": "\\s",
+					"end": "(?=\\))",
+					"patterns": [
+						{
+							"include": "#expressions"
+						}
+					]
+				},
+				{
+					"include": "#variable-names"
+				}
+			]
+		},
+		"variable-names": {
+			"patterns": [
+				{
+					"name": "variable.other.lispbm",
+					"match": "(?<=\\()[a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*(?=$|\\s|\\)|\\])"
+				},
+				{
+					"name": "meta.list.destructured-names.lispbm",
+					"begin": "(?<=\\()\\(",
+					"end": "\\)",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.paren.begin.lispbm"
+						}
+					},
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.paren.end.lispbm"
+						}
+					},
+					"patterns": [
+						{
+							"include": "#symbols"
+						},
+						{
+							"include": "#operators"
+						}
+					]
+				}
+			]
+		},
+		"macro-defs": {
+			"name": "meta.function.macro.lispbm",
+			"begin": "(?<=\\()(macro)",
+			"end": "(?=\\))",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.control.lispbm"
+				}
+			},
+			"patterns": [
+				{
+					"name": "meta.list.parameters.lispbm",
+					"begin": "(?<=(?:macro)\\s+)(\\()",
+					"end": "\\)",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.paren.begin.lispbm"
+						}
+					},
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.paren.end.lispbm"
+						}
+					},
+					"patterns": [
+						{
+							"include": "#parameters"
+						}
+					]
+				},
+				{
 					"include": "#expressions"
 				}
 			]
 		},
 		"defun-defs": {
 			"name": "meta.function.lispbm",
-			"begin": "(?<=\\()(defun)\\s+([a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*)\\s+(\\()(?:([a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*)(?:\\s+([a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*))*)?(\\))",
+			"begin": "(?<=\\()(defun)",
 			"end": "(?=\\))",
 			"beginCaptures": {
 				"1": {
 					"name": "keyword.control.pseudo.lispbm"
-				},
-				"2": {
-					"name": "entity.name.function.lispbm"
-				},
-				"3": {
-					"name": "punctuation.paren.begin.lispbm"
-				},
-				"4": {
-					"name": "variable.parameter.lispbm"
-				},
-				"5": {
-					"name": "variable.parameter.lispbm"
-				},
-				"6": {
-					"name": "punctuation.paren.end.lispbm"
 				}
 			},
 			"patterns": [
+				{
+					"begin": "(?<=defun\\s+)([a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*)\\s+(\\()",
+					"end": "\\)",
+					"beginCaptures": {
+						"1": {
+							"name": "entity.name.function.lispbm"
+						},
+						"2": {
+							"name": "punctuation.paren.begin.lispbm"
+						}
+					},
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.paren.end.lispbm"
+						}
+					},
+					"patterns": [
+						{
+							"include": "#parameters"
+						}
+					]
+				},
+				{
+					"include": "#expressions"
+				}
+			]
+		},
+		"lambda-defs": {
+			"name": "meta.function.lambda.lispbm",
+			"begin": "(?<=\\()(lambda|fn)",
+			"end": "(?=\\))",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.control.lispbm"
+				}
+			},
+			"patterns": [
+				{
+					"name": "meta.list.parameters.lispbm",
+					"begin": "(?<=(?:lambda|fn)\\s+)(\\()",
+					"end": "\\)",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.paren.begin.lispbm"
+						}
+					},
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.paren.end.lispbm"
+						}
+					},
+					"patterns": [
+						{
+							"include": "#parameters"
+						}
+					]
+				},
 				{
 					"include": "#expressions"
 				}
@@ -258,6 +389,10 @@
 		},
 		"symbol": {
 			"name": "variable.other.lispbm",
+			"match": "(?<=^|\\s|,|\\(|\\[)[a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*(?=$|\\s|\\)|\\])"
+		},
+		"parameters": {
+			"name": "variable.parameter.lispbm",
 			"match": "(?<=^|\\s|,|\\(|\\[)[a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*(?=$|\\s|\\)|\\])"
 		},
 		"quoted-symbol": {
