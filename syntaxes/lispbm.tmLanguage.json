@@ -59,6 +59,52 @@
 				}
 			]
 		},
+		"quoted-expressions": {
+			"patterns": [
+				{
+					"include": "#defun-defs"
+				},
+				{
+					"include": "#keywords"
+				},
+				{
+					"include": "#pseudo-keywords"
+				},
+				{
+					"include": "#operators"
+				},
+				{
+					"include": "#lang-constants"
+				},
+				{
+					"include": "#quoted-symbol"
+				},
+				{
+					"include": "#symbol"
+				},
+				{
+					"include": "#strings"
+				},
+				{
+					"include": "#numbers"
+				},
+				{
+					"include": "#macro-defs"
+				},
+				{
+					"include": "#inserted-lists"
+				},
+				{
+					"include": "#quoted-lists"
+				},
+				{
+					"include": "#quoted-child-lists"
+				},
+				{
+					"include": "#comments"
+				}
+			]
+		},
 		"lists": {
 			"name": "meta.list.function.lispbm",
 			"begin": "\\(",
@@ -76,6 +122,26 @@
 			"patterns": [
 				{
 					"include": "#expressions"
+				}
+			]
+		},
+		"quoted-child-lists": {
+			"name": "meta.list.function.lispbm",
+			"begin": "\\(",
+			"end": "\\)",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.paren.begin.lispbm"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.paren.end.lispbm"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#quoted-expressions"
 				}
 			]
 		},
@@ -98,13 +164,36 @@
 			},
 			"patterns": [
 				{
+					"include": "#quoted-expressions"
+				}
+			]
+		},
+		"inserted-lists": {
+			"name": "meta.list.quoted.lispbm",
+			"begin": "(,@?)(\\()",
+			"end": "\\)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.operator.lispbm"
+				},
+				"2": {
+					"name": "punctuation.paren.begin.lispbm"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.paren.end.lispbm"
+				}
+			},
+			"patterns": [
+				{
 					"include": "#expressions"
 				}
 			]
 		},
 		"macro-defs": {
 			"name": "meta.list.macro.lispbm",
-			"begin": "(\\()(macro)\\s+(\\()([a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*)(?:\\s+([a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*))*(\\))",
+			"begin": "(\\()(macro)\\s+(\\()(?:([a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*)(?:\\s+([a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*))*)?(\\))",
 			"end": "\\)",
 			"beginCaptures": {
 				"1": {
@@ -139,7 +228,7 @@
 		},
 		"defun-defs": {
 			"name": "meta.function.lispbm",
-			"begin": "(?<=\\()(defun)\\s+([a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*)\\s+(\\()([a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*)(?:\\s+([a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*))*(\\))",
+			"begin": "(?<=\\()(defun)\\s+([a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*)\\s+(\\()(?:([a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*)(?:\\s+([a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*))*)?(\\))",
 			"end": "(?=\\))",
 			"beginCaptures": {
 				"1": {
