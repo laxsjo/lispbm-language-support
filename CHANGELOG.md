@@ -28,3 +28,6 @@ All notable changes to the "lispbm-language-support" extension will be documente
 
 -   Added indentation to language config. Pressing enter will now auto indent.
 -   Fixed comments not being detected in `let` and parameter list expressions
+-   Added more precise textmate scopes to operators.
+-   Made splice and insert (`,` and `,@`) operators be recognized when in front of
+    single symbol.

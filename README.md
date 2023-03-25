@@ -75,3 +75,4 @@ Initial release of the extension.
 
 -   Add indentation to language config. Pressing enter will now auto indent more
     often.
+-   Improved textmate operator recognition.

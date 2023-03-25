@@ -77,6 +77,9 @@
 					"include": "#lambda-defs"
 				},
 				{
+					"include": "#inserted-symbols"
+				},
+				{
 					"include": "#keywords"
 				},
 				{
@@ -160,7 +163,7 @@
 			"end": "\\)",
 			"beginCaptures": {
 				"1": {
-					"name": "keyword.operator.lispbm"
+					"name": "keyword.operator.quote.lispbm"
 				},
 				"2": {
 					"name": "punctuation.paren.begin.lispbm"
@@ -179,13 +182,16 @@
 		},
 		"inserted-lists": {
 			"name": "meta.list.quoted.lispbm",
-			"begin": "(,@?)(\\()",
+			"begin": "(?:(,)|(,@))(\\()",
 			"end": "\\)",
 			"beginCaptures": {
 				"1": {
-					"name": "keyword.operator.lispbm"
+					"name": "keyword.operator.splice.lispbm"
 				},
 				"2": {
+					"name": "keyword.operator.spread.lispbm"
+				},
+				"3": {
 					"name": "punctuation.paren.begin.lispbm"
 				}
 			},
@@ -407,15 +413,29 @@
 		},
 		"symbol": {
 			"name": "variable.other.lispbm",
-			"match": "(?<=^|\\s|,|\\(|\\[)[a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*(?=$|\\s|\\)|\\])"
+			"match": "(?<=^|\\s|(?:,@?)|\\(|\\[)[a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*(?=$|\\s|\\)|\\])"
 		},
 		"parameters": {
 			"name": "variable.parameter.lispbm",
-			"match": "(?<=^|\\s|,|\\(|\\[)[a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*(?=$|\\s|\\)|\\])"
+			"match": "(?<=^|\\s|(?:,@?)|\\(|\\[)[a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*(?=$|\\s|\\)|\\])"
 		},
 		"quoted-symbol": {
 			"name": "variable.other.constant.lispbm",
-			"match": "(?<=^|\\s|,|\\(|\\[)'[a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*(?=$|\\s|\\)|\\])"
+			"match": "(?<=^|\\s|(?:,@?)|\\(|\\[)'[a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*(?=$|\\s|\\)|\\])"
+		},
+		"inserted-symbols": {
+			"match": "(?<=^|\\s|\\(|\\[|\\{)(?:(,)|(,@))([a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*)(?=$|\\s|\\)|\\]|\\})",
+			"captures": {
+				"1": {
+					"name": "keyword.operator.splice.lispbm"
+				},
+				"2": {
+					"name": "keyword.operator.spread.lispbm"
+				},
+				"3": {
+					"name": "variable.other.lispbm"
+				}
+			}
 		},
 		"function-names": {
 			"name": "entity.name.function.lispbm",
@@ -432,12 +452,31 @@
 		"operators": {
 			"patterns": [
 				{
-					"name": "keyword.operator.lispbm",
-					"match": "(?<=^|\\s|\\(|\\[)(?:and|or|not|\\+|-|\\*|\\/|mod|=|!=|eq|not-eq|>|<|>=|<=|not|shl|shr|type-of|\\?)"
+					"match": "(?<=^|\\s|\\(|\\[)(?:(and|or|not)|(\\+|-|\\*|\\/|mod)|(=|!=|eq|not-eq)|(>|<|>=|<=)|(shl|shr)|(type-of|\\?))",
+					"captures": {
+						"1": {
+							"name": "keyword.operator.logical.lispbm"
+						},
+						"2": {
+							"name": "keyword.operator.arithmetic.lispbm"
+						},
+						"3": {
+							"name": "keyword.operator.comparison.lispbm"
+						},
+						"4": {
+							"name": "keyword.operator.relational.lispbm"
+						},
+						"5": {
+							"name": "keyword.operator.bitwise.shift.lispbm"
+						},
+						"6": {
+							"name": "keyword.operator.other.lispbm"
+						}
+					}
 				},
 				{
-					"name": "keyword.operator.lispbm",
-					"match": "\\s\\.\\s"
+					"name": "punctuation.separator.pair.lispbm",
+					"match": "(?<=\\s)\\.(?=\\s)"
 				}
 			]
 		},
