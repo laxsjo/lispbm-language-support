@@ -3,7 +3,7 @@
 	"displayName": "lispBM language support",
 	"description": "Adds support to the lispBM language. Don't put to much faith into this project.",
 	"publisher": "rasmus-soderhielm",
-	"version": "0.2.0",
+	"version": "0.2.2",
 	"engines": {
 		"vscode": "^1.76.0"
 	},
