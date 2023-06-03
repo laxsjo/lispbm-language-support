@@ -76,3 +76,8 @@ Initial release of the extension.
 -   Add indentation to language config. Pressing enter will now auto indent more
     often.
 -   Improved textmate operator recognition.
+
+### 0.2.2
+
+-   Add syntax grammar support for `@const-start` and `@const-end` (their
+    [documentation](https://github.com/vedderb/bldc/blob/master/lispBM/lispBM/doc/lbmref.md#const-start)).

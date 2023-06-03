@@ -31,3 +31,8 @@ All notable changes to the "lispbm-language-support" extension will be documente
 -   Added more precise textmate scopes to operators.
 -   Made splice and insert (`,` and `,@`) operators be recognized when in front of
     single symbol.
+
+### 0.2.2
+
+-   Add syntax grammar support for `@const-start` and `@const-end` (their
+    [documentation](https://github.com/vedderb/bldc/blob/master/lispBM/lispBM/doc/lbmref.md#const-start)).
