@@ -36,3 +36,7 @@ All notable changes to the "lispbm-language-support" extension will be documente
 
 -   Add syntax grammar support for `@const-start` and `@const-end` (their
     [documentation](https://github.com/vedderb/bldc/blob/master/lispBM/lispBM/doc/lbmref.md#const-start)).
+
+### 0.2.3
+
+-   Fix `<=` and `>=` not being recognized as operators.

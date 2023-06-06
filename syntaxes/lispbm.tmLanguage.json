@@ -455,7 +455,7 @@
 		"operators": {
 			"patterns": [
 				{
-					"match": "(?<=^|\\s|\\(|\\[)(?:(and|or|not)|(\\+|-|\\*|\\/|mod)|(=|!=|eq|not-eq)|(>|<|>=|<=)|(shl|shr)|(type-of|\\?))",
+					"match": "(?<=^|\\s|\\(|\\[)(?:(and|or|not)|(\\+|-|\\*|\\/|mod)|(=|!=|eq|not-eq)|(\\>\\=|\\<\\=|>|<)|(shl|shr)|(type-of|\\?))",
 					"captures": {
 						"1": {
 							"name": "keyword.operator.logical.lispbm"
