@@ -39,4 +39,4 @@ All notable changes to the "lispbm-language-support" extension will be documente
 
 ### 0.2.3
 
--   Fix `<=` and `>=` not being recognized as operators.
+-   Fix `<=`, `>=`, and `not-eq` not being recognized as operators.

@@ -455,16 +455,16 @@
 		"operators": {
 			"patterns": [
 				{
-					"match": "(?<=^|\\s|\\(|\\[)(?:(and|or|not)|(\\+|-|\\*|\\/|mod)|(=|!=|eq|not-eq)|(\\>\\=|\\<\\=|>|<)|(shl|shr)|(type-of|\\?))",
+					"match": "(?<=^|\\s|\\(|\\[)(?:(=|!=|eq|not-eq)|(and|or|not)|(\\+|-|\\*|\\/|mod)|(\\>\\=|\\<\\=|>|<)|(shl|shr)|(type-of|\\?))",
 					"captures": {
 						"1": {
-							"name": "keyword.operator.logical.lispbm"
+							"name": "keyword.operator.comparison.lispbm"
 						},
 						"2": {
-							"name": "keyword.operator.arithmetic.lispbm"
+							"name": "keyword.operator.logical.lispbm"
 						},
 						"3": {
-							"name": "keyword.operator.comparison.lispbm"
+							"name": "keyword.operator.arithmetic.lispbm"
 						},
 						"4": {
 							"name": "keyword.operator.relational.lispbm"
