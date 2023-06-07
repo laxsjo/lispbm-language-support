@@ -58,6 +58,9 @@
 					"include": "#let-bindings-lists"
 				},
 				{
+					"include": "#match-lists"
+				},
+				{
 					"include": "#quoted-lists"
 				},
 				{
@@ -99,6 +102,58 @@
 				},
 				{
 					"include": "#symbol"
+				},
+				{
+					"include": "#strings"
+				},
+				{
+					"include": "#numbers"
+				},
+				{
+					"include": "#inserted-lists"
+				},
+				{
+					"include": "#quoted-lists"
+				},
+				{
+					"include": "#quoted-child-lists"
+				},
+				{
+					"include": "#comments"
+				}
+			]
+		},
+		"auto-quoted-expressions": {
+			"patterns": [
+				{
+					"include": "#macro-defs"
+				},
+				{
+					"include": "#defun-defs"
+				},
+				{
+					"include": "#lambda-defs"
+				},
+				{
+					"include": "#inserted-symbols"
+				},
+				{
+					"include": "#keywords"
+				},
+				{
+					"include": "#pseudo-keywords"
+				},
+				{
+					"include": "#operators"
+				},
+				{
+					"include": "#lang-constants"
+				},
+				{
+					"include": "#quoted-symbol"
+				},
+				{
+					"include": "#auto-quoted-symbol"
 				},
 				{
 					"include": "#strings"
@@ -162,7 +217,7 @@
 		},
 		"quoted-lists": {
 			"name": "meta.list.quoted.lispbm",
-			"begin": "(`|')(\\()",
+			"begin": "(`|')+(\\()",
 			"end": "\\)",
 			"beginCaptures": {
 				"1": {
@@ -185,7 +240,7 @@
 		},
 		"inserted-lists": {
 			"name": "meta.list.quoted.lispbm",
-			"begin": "(?:(,)|(,@))(\\()",
+			"begin": "(?:(,)|(,@))+(\\()",
 			"end": "\\)",
 			"beginCaptures": {
 				"1": {
@@ -295,6 +350,128 @@
 							"include": "#comments"
 						}
 					]
+				}
+			]
+		},
+		"match-lists": {
+			"name": "meta.list.matches.lispbm",
+			"begin": "(?<=\\(match)\\s+",
+			"end": "(?=\\))",
+			"patterns": [
+				{
+					"include": "#match"
+				},
+				{
+					"begin": "(?<=\\(match\\s+)",
+					"end": "(?=$|\\s|\\))",
+					"include": "#expressions"
+				}
+			]
+		},
+		"match": {
+			"name": "meta.structure.match.lispbm",
+			"begin": "\\(",
+			"end": "\\)",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.paren.begin.lispbm"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.paren.end.lispbm"
+				}
+			},
+			"patterns": [
+				{
+					"begin": "\\s",
+					"end": "(?=\\))",
+					"patterns": [
+						{
+							"include": "#expressions"
+						}
+					]
+				},
+				{
+					"include": "#match-pattern"
+				},
+				{
+					"include": "#comments"
+				}
+			]
+		},
+		"match-pattern": {
+			"patterns": [
+				{
+					"include": "#pattern-names"
+				},
+				{
+					"include": "#match-binding"
+				},
+				{
+					"name": "meta.structure.match.destructured.lispbm",
+					"begin": "(?<=\\(\\s*)\\(",
+					"end": "\\)",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.paren.begin.lispbm"
+						}
+					},
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.paren.end.lispbm"
+						}
+					},
+					"patterns": [
+						{
+							"include": "#symbols"
+						},
+						{
+							"include": "#operators"
+						},
+						{
+							"include": "#comments"
+						}
+					]
+				}
+			]
+		},
+		"match-binding": {
+			"name": "meta.structure.match.binding.lispbm",
+			"begin": "(?<=\\(\\s*)\\(",
+			"end": "\\)",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.paren.begin.lispbm"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.paren.end.lispbm"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#pattern-names"
+				},
+				{
+					"name": "keyword.operator.bind.lispbm",
+					"match": "(?<=\\(\\s*)\\?"
+				},
+				{
+					"include": "#symbol"
+				}
+			]
+		},
+		"pattern-names": {
+			"patterns": [
+				{
+					"name": "keyword.operator.wildcard.lispbm",
+					"match": "(?<=\\()_(?=$|\\s|\\)|\\])"
+				},
+				{
+					"name": "variable.other.constant.lispbm",
+					"match": "(?<=\\()[a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*(?=$|\\s|\\)|\\])"
 				}
 			]
 		},
@@ -424,10 +601,14 @@
 		},
 		"quoted-symbol": {
 			"name": "variable.other.constant.lispbm",
-			"match": "(?<=^|\\s|(?:,@?)|\\(|\\[)'[a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*(?=$|\\s|\\)|\\])"
+			"match": "(?<=^|\\s|(?:,@?)|\\(|\\[)'+[a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*(?=$|\\s|\\)|\\])"
+		},
+		"auto-quoted-symbol": {
+			"name": "variable.other.constant.lispbm",
+			"match": "(?<=^|\\s|(?:,@?)|\\(|\\[)+[a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*(?=$|\\s|\\)|\\])"
 		},
 		"inserted-symbols": {
-			"match": "(?<=^|\\s|\\(|\\[|\\{)(?:(,)|(,@))([a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*)(?=$|\\s|\\)|\\]|\\})",
+			"match": "(?<=^|\\s|\\(|\\[|\\{)(?:(,)|(,@))+([a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*)(?=$|\\s|\\)|\\]|\\})",
 			"captures": {
 				"1": {
 					"name": "keyword.operator.splice.lispbm"
