@@ -47,3 +47,4 @@ All notable changes to the "lispbm-language-support" extension will be documente
 -   Add the ability to specify custom folding ranges. Start and end a range with
     `;#region` and `;#endregion`.
     See the description for an example.
+-   Fixed that moving line up or down decreased the indentation too incorrectly.

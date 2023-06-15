@@ -61,7 +61,7 @@
 	"wordPattern": "(-?\\d*\\.\\d\\w*)|([^`~!@#%^&*()=+\\[{\\]}\\|;:'\",\\.<>/?\\s]+)",
 	"indentationRules": {
 		"increaseIndentPattern": "^((?!;).)*(?:\\{(?:[^}\"]|(\"[^\"]*\"))*|\\((?:[^)\"]|(\"[^\"]*\"))*|\\[(?:[^\\]\"]|(\"[^\"]*\"))*)$",
-		"decreaseIndentPattern": "^.*[\\)\\}\\]].*$"
+		"decreaseIndentPattern": "^\\s*[\\)\\}\\]].*$"
 	},
 	"onEnterRules": [
 		{

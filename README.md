@@ -96,3 +96,4 @@ Initial release of the extension.
 ### 0.3.0
 
 -   Add custom folding marker comments
+-   Fix a lot of indentation issues.
