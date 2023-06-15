@@ -2,7 +2,7 @@
 (init-hw)
 
 (defun main-subview-change (new-subview) {
-    (var cleanup (match view-main-subview 
+    (var cleanup (match (function 5 a) 
         (gear subview-cleanup-gear)
         (speed subview-cleanup-speed)
     ))
@@ -54,3 +54,8 @@
     (* 4 7)
 
 }
+
+(def test (macro (a b) '{
+    ,a
+    (var ,b 5)
+}))
