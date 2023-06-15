@@ -48,3 +48,4 @@ All notable changes to the "lispbm-language-support" extension will be documente
     `;#region` and `;#endregion`.
     See the description for an example.
 -   Fixed that moving line up or down decreased the indentation too incorrectly.
+-   Lines are now automatically indented when pressing enter in the middle of a list.
