@@ -17,14 +17,20 @@ This means that basic syntax highlighting is supported (no [semantic highlightin
 
 Bracket definitions are also provided.
 
-<!--
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+Custom folding ranges can be specified using comments. Start the range with a
+`;#region` line and end it with a `;#endregion` comment.
+Custom text after `#region` and `#endregion` is allowed.
+Example:
 
-For example if there is an image subfolder under your extension project workspace:
+```lisp
+;#region myregion
 
-\!\[feature X\]\(images/feature-x.png\)
+; This can be folded :)
+(def a 5)
+(print a)
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow. -->
+;#endregion
+```
 
 ## Requirements
 
@@ -86,3 +92,7 @@ Initial release of the extension.
 
 -   Add syntax support for match structure.
 -   Fix `<=`, `>=`, and `not-eq` not being recognized as operators.
+
+### 0.3.0
+
+-   Add custom folding marker comments

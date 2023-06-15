@@ -40,4 +40,8 @@ All notable changes to the "lispbm-language-support" extension will be documente
 ### 0.2.3
 
 -   Fix `<=`, `>=`, and `not-eq` not being recognized as operators.
--   Add syntax support for match structure
+-   Add syntax support for match structure.
+
+### 0.3.0
+
+-   Add the ability to specify custom folding ranges. Start and end a range with `;#region` and `;#endregion`.
