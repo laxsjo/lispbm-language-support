@@ -44,8 +44,11 @@ All notable changes to the "lispbm-language-support" extension will be documente
 
 ### 0.3.0
 
--   Add the ability to specify custom folding ranges. Start and end a range with
+-   Added the ability to specify custom folding ranges. Start and end a range with
     `;#region` and `;#endregion`.
     See the description for an example.
 -   Fixed that moving line up or down decreased the indentation too incorrectly.
--   Lines are now automatically indented when pressing enter in the middle of a list.
+-   Lines are now automatically indented when pressing enter in the middle of a
+    list.
+-   Fixed function calls as the matched expression in a match block not being
+    recognized as functions in the grammar.

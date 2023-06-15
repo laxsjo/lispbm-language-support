@@ -359,12 +359,16 @@
 			"end": "(?=\\))",
 			"patterns": [
 				{
-					"include": "#match"
+					"begin": "(?<=\\(match\\s+)",
+					"end": "\\s+(?=\\()",
+					"patterns": [
+						{
+							"include": "#expressions"
+						}
+					]
 				},
 				{
-					"begin": "(?<=\\(match\\s+)",
-					"end": "(?=$|\\s|\\))",
-					"include": "#expressions"
+					"include": "#match"
 				}
 			]
 		},
