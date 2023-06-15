@@ -369,6 +369,9 @@
 				},
 				{
 					"include": "#match"
+				},
+				{
+					"include": "#comments"
 				}
 			]
 		},
@@ -388,23 +391,19 @@
 			},
 			"patterns": [
 				{
-					"begin": "\\s",
-					"end": "(?=\\))",
-					"patterns": [
-						{
-							"include": "#expressions"
-						}
-					]
+					"include": "#comments"
 				},
 				{
 					"include": "#match-pattern"
 				},
 				{
-					"include": "#comments"
+					"include": "#expressions"
 				}
 			]
 		},
 		"match-pattern": {
+			"begin": "(?<=\\()",
+			"end": "\\s",
 			"patterns": [
 				{
 					"include": "#pattern-names"

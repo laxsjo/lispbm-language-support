@@ -23,8 +23,17 @@
         ((gear (? variable)) (+ variable 2))
         ((_ (? variable)) (+ variable 2))
         ((? variable) (+ variable 2))
+        ; (gear )
     ))
     (def view-main-subview new-subview)
+
+    (var text (img-buffer-from-bin (match board-info-msg
+        (initiate-pairing text-initiate-pairing)
+        (pairing text-pairing)
+        (board-not-powered text-board-not-powered)
+        (pairing-failed text-pairing-failed)
+        ; (pairing-success nil) ; TODO: figure out the dynamic text
+    )))
 
     ; (subview-cleanup-gear)
     (cleanup)
