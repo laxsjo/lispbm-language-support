@@ -1,7 +1,7 @@
 {
 	"name": "lispbm-language-support",
 	"displayName": "lispBM language support",
-	"description": "Adds support to the lispBM language. Don't put to much faith into this project.",
+	"description": "Adds support for the lispBM language. Don't put to much faith into this project.",
 	"publisher": "rasmus-soderhielm",
 	"version": "0.3.0",
 	"engines": {
