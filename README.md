@@ -23,7 +23,7 @@ Custom text after `#region` and `#endregion` is allowed.
 Example:
 
 ```lisp
-;#region myregion
+;#region My Optional Region
 
 ; This can be folded :)
 (def a 5)
