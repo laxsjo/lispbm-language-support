@@ -65,12 +65,18 @@
 	},
 	"onEnterRules": [
 		{
+			// Apparently this part of vscode does not support recursive regex
+			// patterns which would be required to make beforeText correct.
 			"beforeText": "^((?!;).)*(?:\\{(?:[^}\"]|(\"[^\"]*\")|\\{[^}]*\\})*|\\((?:[^)\"]|(\"[^\"]*\")|\\([^)]*\\))*|\\[(?:[^\\]\"]|(\"[^\"]*\")|\\[[^\\]]*\\])*)$",
+			// The correct (and incompatible) version (it only supports
+			// parantheses, but could easily be expanded)
+			// "beforeText": "^(?:(?!;).)*(?:\\((?:[^)\"]|(?:\"[^\"]*\")|(\\((?:[^)]|\"[^\"]*\"|(?1))*\\)))*)$",
 			"afterText": "^(?:[\\}\\)\\]]+).*$",
 			"action": {
 				"indent": "indentOutdent"
 			}
 		},
+		// before curly braces braces
 		{
 			"beforeText": "^((?!;).)*(?:\\{(?:[^\\}\"]|(\"[^\"]*\")|\\{(?:[^\\}]|(\"[^\"]*\"))*\\})*)$",
 			"afterText": "^(?:(?:[^\\}\"]|(\"[^\"]*\")|\\{(?:[^\\}]|(\"[^\"]*\"))*\\})*)\\}.*$",
@@ -78,6 +84,7 @@
 				"indent": "indent"
 			}
 		},
+		// before parantheses
 		{
 			"beforeText": "^((?!;).)*(?:\\((?:[^\\)\"]|(\"[^\"]*\")|\\((?:[^\\)]|(\"[^\"]*\"))*\\))*)$",
 			"afterText": "^(?:(?:[^\\)\"]|(\"[^\"]*\")|\\((?:[^\\)]|(\"[^\"]*\"))*\\))*)\\).*$",
@@ -85,6 +92,7 @@
 				"indent": "indent"
 			}
 		},
+		// before square brackets
 		{
 			"beforeText": "^((?!;).)*(?:\\[(?:[^\\]\"]|(\"[^\"]*\")|\\[(?:[^\\]]|(\"[^\"]*\"))*\\])*)$",
 			"afterText": "^(?:(?:[^\\]\"]|(\"[^\"]*\")|\\[(?:[^\\]]|(\"[^\"]*\"))*\\])*)\\].*$",

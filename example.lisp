@@ -35,6 +35,12 @@
         ; (pairing-success nil) ; TODO: figure out the dynamic text
     )))
 
+    (if (includes keys (car pair)))
+
+    (def a-bool true)
+    (def other-bool false)
+
+
     ; (subview-cleanup-gear)
     (cleanup)
     (stencil)
