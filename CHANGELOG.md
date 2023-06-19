@@ -52,3 +52,5 @@ All notable changes to the "lispbm-language-support" extension will be documente
     list.
 -   Fixed function calls as the matched expression in a match block not being
     recognized as functions in the grammar.
+-   Fixed that the `true` and `false` bindings to `t` and `nil` weren't
+    recognized as language constants.

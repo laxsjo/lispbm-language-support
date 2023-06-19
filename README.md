@@ -97,3 +97,4 @@ Initial release of the extension.
 
 -   Add custom folding marker comments
 -   Fix a lot of indentation issues.
+-   Fix unrecognized `true` and `false` constants.

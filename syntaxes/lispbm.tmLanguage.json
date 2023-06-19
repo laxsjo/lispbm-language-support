@@ -684,7 +684,7 @@
 		},
 		"lang-constants": {
 			"name": "constant.language.lispbm",
-			"match": "\\b(?:t|f|nil)\\b"
+			"match": "\\b(?:t|nil|true|false)\\b"
 		},
 		"comments": {
 			"name": "comment.line.semicolon.lispbm",
