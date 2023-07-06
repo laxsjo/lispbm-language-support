@@ -697,7 +697,7 @@
 		},
 		"decorators": {
 			"name": "entity.name.decorator.lispbm",
-			"match": "^@(const-start|const-end)$\n?"
+			"match": "^@(const-start|const-end|const-symbol-strings)$\n?"
 		}
 	},
 	"scopeName": "source.lispbm"

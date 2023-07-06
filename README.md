@@ -98,3 +98,7 @@ Initial release of the extension.
 -   Add custom folding marker comments
 -   Fix a lot of indentation issues.
 -   Fix unrecognized `true` and `false` constants.
+
+### 0.3.1
+
+-   Add support for `@const-symbol-strings`

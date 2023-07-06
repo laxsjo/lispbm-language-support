@@ -54,3 +54,8 @@ All notable changes to the "lispbm-language-support" extension will be documente
     recognized as functions in the grammar.
 -   Fixed that the `true` and `false` bindings to `t` and `nil` weren't
     recognized as language constants.
+
+### 0.3.1
+
+-   Added support for the new `@const-symbol-strings`
+    ([documentation](https://github.com/svenssonjoel/lispBM/blob/master/doc/lbmref.md#const-symbol-strings))
