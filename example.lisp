@@ -1,3 +1,5 @@
+@const-symbol-strings
+
 (loopwhile (not (main-init-done)) (sleep 0.1))
 (init-hw)
 
