@@ -1,5 +1,7 @@
 @const-symbol-strings
 
+;;; This is just dummy code, and doesn't actually do anything usefull
+
 (loopwhile (not (main-init-done)) (sleep 0.1))
 (init-hw)
 
@@ -76,3 +78,14 @@
     ,a
     (var ,b 5)
 }))
+
+(defun sim7000-connect-tcp-commands (address port)
+    (list `(at-command ,(str-merge "AT+CIPSTART=0,\"TCP\",\"" address "\",\"" port "\"\r\n") "OK" 100)
+          '(sleep 0.3) ;; Takes a while to establish connection
+          '(check-response "0, CONNECT OK" 100)
+          ))
+          
+                             
+(defun sim7000-close () (command-sequence 
+    (list '(at-command "AT+CIPCLOSE=0\r\n" "CLOSE OK" 100))
+))
