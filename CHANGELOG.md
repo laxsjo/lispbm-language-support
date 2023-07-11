@@ -59,3 +59,7 @@ All notable changes to the "lispbm-language-support" extension will be documente
 
 -   Added support for the new `@const-symbol-strings`
     ([documentation](https://github.com/svenssonjoel/lispBM/blob/master/doc/lbmref.md#const-symbol-strings))
+
+### 0.3.2
+
+-   Fixed escaped characters in strings not being detected.

@@ -102,3 +102,7 @@ Initial release of the extension.
 ### 0.3.1
 
 -   Add support for `@const-symbol-strings`
+
+### 0.3.2
+
+-   Fix escaped characters in strings not being detected.

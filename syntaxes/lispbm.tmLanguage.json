@@ -674,7 +674,11 @@
 			"patterns": [
 				{
 					"name": "constant.character.escape.lispbm",
-					"match": "\\[a-z\"\\\\]"
+					"match": "\\\\[nrt0\"\\\\]"
+				},
+				{
+					"name": "invalid.illegal.lispbm",
+					"match": "\\\\[^nrt0\"\\\\]"
 				}
 			]
 		},
