@@ -518,7 +518,7 @@
 		},
 		"defun-defs": {
 			"name": "meta.function.lispbm",
-			"begin": "(?<=\\()(defun\\s)",
+			"begin": "(?<=\\()(defun|defunret)\\s",
 			"end": "(?=\\))",
 			"beginCaptures": {
 				"1": {
@@ -527,7 +527,7 @@
 			},
 			"patterns": [
 				{
-					"begin": "(?<=defun\\s+)([a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*)\\s+(\\()",
+					"begin": "(?<=(?:defun|defunret)\\s+)([a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*)\\s+(\\()",
 					"end": "\\)",
 					"beginCaptures": {
 						"1": {
@@ -634,7 +634,7 @@
 		},
 		"pseudo-keywords": {
 			"name": "keyword.control.pseudo.lispbm",
-			"match": "(?<=^|\\s|\\(|\\[)(?:def|defun|fn|looprange|loopwhile|spawn|spawn-trap|wait|yield|atomic|eval|eval-program|car|cons|list|length|range|append|ix|setix|setcar|setcdr|acons|assoc|cossa|setassoc|array-create|array-size|array-write|array-clear|match|import)(?=$|\\s|\\)|\\])"
+			"match": "(?<=^|\\s|\\(|\\[)(?:def|defun|defunret|fn|looprange|loopwhile|spawn|spawn-trap|wait|yield|atomic|eval|eval-program|car|cons|list|length|range|append|ix|setix|setcar|setcdr|acons|assoc|cossa|setassoc|array-create|array-size|array-write|array-clear|match|import)(?=$|\\s|\\)|\\])"
 		},
 		"operators": {
 			"patterns": [
