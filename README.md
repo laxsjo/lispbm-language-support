@@ -106,3 +106,7 @@ Initial release of the extension.
 ### 0.3.2
 
 -   Fix escaped characters in strings not being detected.
+
+### 0.3.3
+
+-   Add support for `read-eval-program`, `undefine`, `import`, and `defunret`.
