@@ -634,7 +634,7 @@
 		},
 		"pseudo-keywords": {
 			"name": "keyword.control.pseudo.lispbm",
-			"match": "(?<=^|\\s|\\(|\\[)(?:def|defun|fn|looprange|loopwhile|spawn|spawn-trap|wait|yield|atomic|eval|eval-program|car|cons|list|length|range|append|ix|setix|setcar|setcdr|acons|assoc|cossa|setassoc|array-create|array-size|array-write|array-clear|match)(?=$|\\s|\\)|\\])"
+			"match": "(?<=^|\\s|\\(|\\[)(?:def|defun|fn|looprange|loopwhile|spawn|spawn-trap|wait|yield|atomic|eval|eval-program|car|cons|list|length|range|append|ix|setix|setcar|setcdr|acons|assoc|cossa|setassoc|array-create|array-size|array-write|array-clear|match|import)(?=$|\\s|\\)|\\])"
 		},
 		"operators": {
 			"patterns": [

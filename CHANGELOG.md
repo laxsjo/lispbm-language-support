@@ -68,3 +68,4 @@ All notable changes to the "lispbm-language-support" extension will be documente
 
 -   Fixed `read-eval-program` and `undefine` not being detected as special
     forms.
+-   `import` is now detected as a control keyword. ([documentation](https://github.com/vedderb/bldc/blob/master/lispBM/README.md#import))
