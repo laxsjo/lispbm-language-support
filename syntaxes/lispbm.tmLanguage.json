@@ -630,11 +630,11 @@
 		},
 		"keywords": {
 			"name": "keyword.control.special-form.lispbm",
-			"match": "(?<=^|\\s|\\(|\\[)(?:if|lambda|let|var|define|progn|read|match|macro|call-cc|recv|cond)(?=$|\\s|\\)|\\])"
+			"match": "(?<=^|\\s|\\(|\\[)(?:if|lambda|let|var|define|undefine|progn|read|read-program|read-eval-program|match|macro|call-cc|recv|cond)(?=$|\\s|\\)|\\])"
 		},
 		"pseudo-keywords": {
 			"name": "keyword.control.pseudo.lispbm",
-			"match": "(?<=^|\\s|\\(|\\[)(?:def|defun|fn|setvar|set|setq|looprange|loopwhile|spawn|spawn-trap|wait|yield|atomic|eval|eval-program|read-program|car|cons|list|length|range|append|ix|setix|setcar|setcdr|acons|assoc|cossa|setassoc|array-create|array-size|array-write|array-clear|match)(?=$|\\s|\\)|\\])"
+			"match": "(?<=^|\\s|\\(|\\[)(?:def|defun|fn|setvar|set|setq|looprange|loopwhile|spawn|spawn-trap|wait|yield|atomic|eval|eval-program|car|cons|list|length|range|append|ix|setix|setcar|setcdr|acons|assoc|cossa|setassoc|array-create|array-size|array-write|array-clear|match)(?=$|\\s|\\)|\\])"
 		},
 		"operators": {
 			"patterns": [

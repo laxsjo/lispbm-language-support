@@ -63,3 +63,8 @@ All notable changes to the "lispbm-language-support" extension will be documente
 ### 0.3.2
 
 -   Fixed escaped characters in strings not being detected.
+
+### 0.3.3
+
+-   Fixed `read-eval-program` and `undefine` not being detected as special
+    forms.

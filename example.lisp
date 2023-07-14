@@ -89,3 +89,21 @@
 (defun sim7000-close () (command-sequence 
     (list '(at-command "AT+CIPCLOSE=0\r\n" "CLOSE OK" 100))
 ))
+
+(loopwhile (not (main-init-done)) (sleep 0.1))
+(init-hw)
+
+(disp-load-sh8501b 6 5 7 8 40)
+(disp-reset)
+
+(print "at init")
+
+(import "included.lisp" 'included)
+
+(read-eval-program included)
+
+(eval (read-program included))
+
+(read-eval-program included)
+
+(eval-program (read included))
