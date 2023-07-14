@@ -518,7 +518,7 @@
 		},
 		"defun-defs": {
 			"name": "meta.function.lispbm",
-			"begin": "(?<=\\()(defun)",
+			"begin": "(?<=\\()(defun\\s)",
 			"end": "(?=\\))",
 			"beginCaptures": {
 				"1": {
@@ -630,7 +630,7 @@
 		},
 		"keywords": {
 			"name": "keyword.control.special-form.lispbm",
-			"match": "(?<=^|\\s|\\(|\\[)(?:if|lambda|let|var|define|undefine|setvar|set|setq|progn|read|read-program|read-eval-program|match|macro|call-cc|recv|cond)(?=$|\\s|\\)|\\])"
+			"match": "(?<=^|\\s|\\(|\\[)(?:if|lambda|let|var|define|undefine|setvar|set|setq|progn|read|read-program|read-eval-program|match|macro|call-cc|recv|cond)\\b(?=$|\\s|\\)|\\])"
 		},
 		"pseudo-keywords": {
 			"name": "keyword.control.pseudo.lispbm",

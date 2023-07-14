@@ -107,3 +107,49 @@
 (read-eval-program included)
 
 (eval-program (read included))
+
+(defunret test-connection () {
+    (if (eq (sim7070-init) 'error) {
+        (print "sim707-init failed")
+        (return false)
+    })
+    
+    (if (not
+        (tcp-connect "lindboard-staging.azurewebsites.net" "80")
+    ) {
+        (print "connection to lindboard-staging.azurewebsites.net failed")
+        (return false)
+    })
+    
+    (if (not
+        (ext-tcp-send-string ping-http-request)
+    ) {
+        (print (str-merge "Request failed: " ping-http-request))
+        (return false)
+    })
+    
+    true
+})
+
+(testdefunret test-connection () {
+    (if (eq (sim7070-init) 'error) {
+        (print "sim707-init failed")
+        (return false)
+    })
+    
+    (if (not
+        (tcp-connect "lindboard-staging.azurewebsites.net" "80")
+    ) {
+        (print "connection to lindboard-staging.azurewebsites.net failed")
+        (return false)
+    })
+    
+    (if (not
+        (ext-tcp-send-string ping-http-request)
+    ) {
+        (print (str-merge "Request failed: " ping-http-request))
+        (return false)
+    })
+    
+    true
+})
