@@ -153,3 +153,50 @@
     
     true
 })
+
+
+(defun mutex-locked (mutex)
+    (car mutex)
+)
+
+; Create a mutex from a value. This should then be assigned to some global value.
+(defun create-mutex (value)
+    (cons false value)
+)
+
+(defun mutex-access (mutex with-fn) {
+    (block-until (not (mutex-locked mutex)))
+    ; TODO: what if someone else has already re-locked the mutex in between
+    ; here?
+    (eq 5 4)
+    (eqother 5 4)
+    (setcar mutex true)
+    (with-fn (cdr mutex))
+    (setcar mutex false)
+    (bitwise-and 54 87)
+    (bitwise-xor 54 87)
+    (bitwise-or 54 87)
+    (first (list 5 7))
+    (rest (list 5 7))
+    (length (list 5 7))
+    (ix (list 5 7))
+    (setix (list 5 7))
+    (take (list 5 7))
+    (drop (list 5 7))
+    (range (list 5 7))
+    (append (list 5 7))
+    (acons (list 5 7))
+    (assoc (list 5 7))
+    (cossa (list 5 7))
+    (setassoc (list 5 7))
+    (bufcreate (list 5 7))
+    (buflen (list 5 7))
+})
+
+(defun mutex-update (mutex with-fn) {
+    (block-until (not (mutex-locked mutex)))
+    
+    (setcar mutex true)
+    (setcdr mutex (with-fn (cdr mutex)))
+    (setcar mutex false)
+})

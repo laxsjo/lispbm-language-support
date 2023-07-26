@@ -70,3 +70,7 @@ All notable changes to the "lispbm-language-support" extension will be documente
     forms.
 -   `import` is now detected as a control keyword. ([documentation](https://github.com/vedderb/bldc/blob/master/lispBM/README.md#import)).
 -   `defunret` functions are now supported ([documentation](https://github.com/vedderb/bldc/blob/master/lispBM/README.md#defunret)).
+
+### 0.3.4
+
+-   Add support for operators `cdr`, `first`, `rest`, and `bitwise-*`

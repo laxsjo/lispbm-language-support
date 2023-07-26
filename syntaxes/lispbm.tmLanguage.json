@@ -630,16 +630,16 @@
 		},
 		"keywords": {
 			"name": "keyword.control.special-form.lispbm",
-			"match": "(?<=^|\\s|\\(|\\[)(?:if|lambda|let|var|define|undefine|setvar|set|setq|progn|read|read-program|read-eval-program|match|macro|call-cc|recv|cond)\\b(?=$|\\s|\\)|\\])"
+			"match": "(?<=^|\\s|\\(|\\[)(?:if|lambda|let|var|define|undefine|setvar|set|setq|progn|read|read-program|read-eval-program|match|macro|call-cc|recv|cond)\\b(?=$|\\s|\\)|\\]|\\})"
 		},
 		"pseudo-keywords": {
 			"name": "keyword.control.pseudo.lispbm",
-			"match": "(?<=^|\\s|\\(|\\[)(?:def|defun|defunret|fn|looprange|loopwhile|spawn|spawn-trap|wait|yield|atomic|eval|eval-program|car|cons|list|length|range|append|ix|setix|setcar|setcdr|acons|assoc|cossa|setassoc|array-create|array-size|array-write|array-clear|match|import)(?=$|\\s|\\)|\\])"
+			"match": "(?<=^|\\s|\\(|\\[)(?:def|defun|defunret|fn|looprange|loopwhile|spawn|spawn-trap|wait|yield|atomic|eval|eval-program|car|cdr|first|rest|cons|list|length|range|append|ix|setix|setcar|setcdr|acons|assoc|cossa|setassoc|array-create|array-size|array-write|array-clear|match|import)(?=$|\\s|\\)|\\]|\\})"
 		},
 		"operators": {
 			"patterns": [
 				{
-					"match": "(?<=^|\\s|\\(|\\[)(?:(=|!=|eq|not-eq)|(and|or|not)|(\\+|-|\\*|\\/|mod)|(\\>\\=|\\<\\=|>|<)|(shl|shr)|(type-of|\\?))",
+					"match": "(?<=^|\\s|\\(|\\[)(?:(=|!=|eq|not-eq)|(and|or|not)|(\\+|-|\\*|\\/|mod)|(\\>\\=|\\<\\=|>|<)|(bitwise-and|bitwise-or|bitwise-xor|bitwise-not)|(shl|shr)|(type-of|\\?))(?=$|\\s|\\)|\\]|\\})",
 					"captures": {
 						"1": {
 							"name": "keyword.operator.comparison.lispbm"
@@ -654,9 +654,12 @@
 							"name": "keyword.operator.relational.lispbm"
 						},
 						"5": {
-							"name": "keyword.operator.bitwise.shift.lispbm"
+							"name": "keyword.operator.bitwise.logical.lispbm"
 						},
 						"6": {
+							"name": "keyword.operator.bitwise.shift.lispbm"
+						},
+						"7": {
 							"name": "keyword.operator.other.lispbm"
 						}
 					}
