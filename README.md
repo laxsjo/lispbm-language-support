@@ -110,3 +110,7 @@ Initial release of the extension.
 ### 0.3.3
 
 -   Add support for `read-eval-program`, `undefine`, `import`, and `defunret`.
+
+### 0.3.4
+
+-   Add more operators, like `cdr`
