@@ -55,6 +55,12 @@
 					"include": "#numbers"
 				},
 				{
+					"include": "#hex-numbers"
+				},
+				{
+					"include": "#chars"
+				},
+				{
 					"include": "#let-bindings-lists"
 				},
 				{
@@ -110,6 +116,12 @@
 					"include": "#numbers"
 				},
 				{
+					"include": "#hex-numbers"
+				},
+				{
+					"include": "#chars"
+				},
+				{
 					"include": "#inserted-lists"
 				},
 				{
@@ -160,6 +172,12 @@
 				},
 				{
 					"include": "#numbers"
+				},
+				{
+					"include": "#hex-numbers"
+				},
+				{
+					"include": "#chars"
 				},
 				{
 					"include": "#inserted-lists"
@@ -685,9 +703,38 @@
 				}
 			]
 		},
+		"comment": {
+			"name": "so apparently we can't match patterns like /-5/ (but /-5\\./ would work for whatever reason! >:O), causing negative integers to not work... >:("
+		},
 		"numbers": {
-			"name": "constant.numeric.lispbm",
-			"match": "\\b(?:[0-9]+\\.?[0-9]*|0x[0-9a-fA-F]+)\\b"
+			"name": "constant.numeric.decimal.lispbm",
+			"match": "(?<=^|\\s|\\(|\\[|\\{)(-)?(?:[0-9]+(?:b|u|i|i32|u32|i64|u64)?|[0-9]+(\\.)[0-9]+(?:f32|f64)?)(?=$|\\s|\\)|\\]|\\})",
+			"captures": {
+				"1": {
+					"name": "keyword.operator.math.lispbm"
+				},
+				"2": {
+					"name": "punctuation.separator.dot.decimal.lispbm"
+				}
+			}
+		},
+		"hex-numbers": {
+			"name": "constant.numeric.hex.lispbm",
+			"match": "(?<=^|\\s|\\(|\\[|\\{)(-)?(?:0x[0-9a-fA-F]+(?:u32|u64|i32|i64)?)(?=$|\\s|\\)|\\]|\\})",
+			"captures": {
+				"1": {
+					"name": "keyword.operator.math.lispbm"
+				}
+			}
+		},
+		"chars": {
+			"name": "string.quoted.single.char.lispbm",
+			"match": "(?<=^|\\s|\\(|\\[|\\{)(\\\\#)(?:.|[\\n\\r])(?=$|\\s|\\)|\\]|\\})",
+			"captures": {
+				"1": {
+					"name": "punctuation.definition.char.lispbm"
+				}
+			}
 		},
 		"lang-constants": {
 			"name": "constant.language.lispbm",

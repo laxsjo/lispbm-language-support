@@ -114,3 +114,4 @@ Initial release of the extension.
 ### 0.3.4
 
 -   Add more operators, like `cdr`
+-   Add missing numeric literals

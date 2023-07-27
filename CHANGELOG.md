@@ -74,3 +74,6 @@ All notable changes to the "lispbm-language-support" extension will be documente
 ### 0.3.4
 
 -   Add support for operators `cdr`, `first`, `rest`, and `bitwise-*`
+-   Add support for all different number type postfixes. (ex: `1u32`, `3.14f64`)
+    (see more examples in the [LispBM guide](https://github.com/vedderb/bldc/blob/master/lispBM/lispBM/doc/manual/ch1_introduction.md#values-and-types))
+-   There is a known bug that negative integers aren't detected...
