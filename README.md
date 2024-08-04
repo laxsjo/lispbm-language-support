@@ -51,11 +51,7 @@ This extension contributes the following settings:
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
--   Only the first and last parameters in macro and function definitions get
-    proper syntax highlighting.
--   `cond` blocks don't have proper syntax highlighting.
+None! :)
 
 ## Release Notes
 

@@ -237,3 +237,9 @@
         (list "Hello world")
     )
 })
+
+(cond
+    (test 1 2)
+    (= 2 3)
+    value
+)
