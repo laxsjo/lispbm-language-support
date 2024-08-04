@@ -53,6 +53,14 @@ This extension contributes the following settings:
 
 None! :)
 
+## Building
+You need to have vsce installed (sorry don't feel like writing a guide for that
+currently .\_.).
+Then run
+```shell
+vsce package -o build/
+```
+
 ## Release Notes
 
 See [CHANGELOG.md](CHANGELOG.md) for more details
