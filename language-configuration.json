@@ -1,110 +1,77 @@
 {
-	"comments": {
-		// symbol used for single line comment. Remove this entry if your language does not support line comments
-		"lineComment": ";",
-		// symbols used for start and end a block comment. Remove this entry if your language does not support block comments
-		// "blockComment": [ "/*", "*/" ]
-	},
-	// symbols used as brackets
-	"brackets": [
-		[
-			"{",
-			"}"
-		],
-		[
-			"[",
-			"]"
-		],
-		[
-			"(",
-			")"
-		],
-	],
-	// symbols that are auto closed when typing
-	"autoClosingPairs": [
-		[
-			"{",
-			"}"
-		],
-		[
-			"[",
-			"]"
-		],
-		[
-			"(",
-			")"
-		],
-		[
-			"\"",
-			"\""
-		],
-	],
-	// symbols that can be used to surround a selection
-	"surroundingPairs": [
-		[
-			"{",
-			"}"
-		],
-		[
-			"[",
-			"]"
-		],
-		[
-			"(",
-			")"
-		],
-		[
-			"\"",
-			"\""
-		],
-	],
-	"wordPattern": "(-?\\d*\\.\\d\\w*)|([^`~!@#%^&*()=+\\[{\\]}\\|;:'\",\\.<>/?\\s]+)",
-	"indentationRules": {
-		"increaseIndentPattern": "^((?!;).)*(?:\\{(?:[^}\"]|(\"[^\"]*\"))*|\\((?:[^)\"]|(\"[^\"]*\"))*|\\[(?:[^\\]\"]|(\"[^\"]*\"))*)$",
-		"decreaseIndentPattern": "^\\s*[\\)\\}\\]].*$"
-	},
-	"onEnterRules": [
-		{
-			// Apparently this part of vscode does not support recursive regex
-			// patterns which would be required to make beforeText correct.
-			"beforeText": "^((?!;).)*(?:\\{(?:[^}\"]|(\"[^\"]*\")|\\{[^}]*\\})*|\\((?:[^)\"]|(\"[^\"]*\")|\\([^)]*\\))*|\\[(?:[^\\]\"]|(\"[^\"]*\")|\\[[^\\]]*\\])*)$",
-			// The correct (and incompatible) version (it only supports
-			// parantheses, but could easily be expanded)
-			// "beforeText": "^(?:(?!;).)*(?:\\((?:[^)\"]|(?:\"[^\"]*\")|(\\((?:[^)]|\"[^\"]*\"|(?1))*\\)))*)$",
-			"afterText": "^(?:[\\}\\)\\]]+).*$",
-			"action": {
-				"indent": "indentOutdent"
-			}
-		},
-		// before curly braces braces
-		{
-			"beforeText": "^((?!;).)*(?:\\{(?:[^\\}\"]|(\"[^\"]*\")|\\{(?:[^\\}]|(\"[^\"]*\"))*\\})*)$",
-			"afterText": "^(?:(?:[^\\}\"]|(\"[^\"]*\")|\\{(?:[^\\}]|(\"[^\"]*\"))*\\})*)\\}.*$",
-			"action": {
-				"indent": "indent"
-			}
-		},
-		// before parantheses
-		{
-			"beforeText": "^((?!;).)*(?:\\((?:[^\\)\"]|(\"[^\"]*\")|\\((?:[^\\)]|(\"[^\"]*\"))*\\))*)$",
-			"afterText": "^(?:(?:[^\\)\"]|(\"[^\"]*\")|\\((?:[^\\)]|(\"[^\"]*\"))*\\))*)\\).*$",
-			"action": {
-				"indent": "indent"
-			}
-		},
-		// before square brackets
-		{
-			"beforeText": "^((?!;).)*(?:\\[(?:[^\\]\"]|(\"[^\"]*\")|\\[(?:[^\\]]|(\"[^\"]*\"))*\\])*)$",
-			"afterText": "^(?:(?:[^\\]\"]|(\"[^\"]*\")|\\[(?:[^\\]]|(\"[^\"]*\"))*\\])*)\\].*$",
-			"action": {
-				"indent": "indent"
-			}
-		}
-	],
-	"folding": {
-		"markers": {
-			"start": "^\\s*;\\s*#region\\b",
-			"end": "^\\s*;\\s*#endregion\\b",
-		},
-	}
+  "comments": {
+    // symbol used for single line comment. Remove this entry if your language does not support line comments
+    "lineComment": ";"
+    // symbols used for start and end a block comment. Remove this entry if your language does not support block comments
+    // "blockComment": [ "/*", "*/" ]
+  },
+  // symbols used as brackets
+  "brackets": [
+    ["{", "}"],
+    ["[", "]"],
+    ["(", ")"]
+  ],
+  // symbols that are auto closed when typing
+  "autoClosingPairs": [
+    ["{", "}"],
+    ["[", "]"],
+    ["(", ")"],
+    ["\"", "\""]
+  ],
+  // symbols that can be used to surround a selection
+  "surroundingPairs": [
+    ["{", "}"],
+    ["[", "]"],
+    ["(", ")"],
+    ["\"", "\""]
+  ],
+  "wordPattern": "(-?\\d*\\.\\d\\w*)|([^`~!@#%^&*()=+\\[{\\]}\\|;:'\",\\.<>/?\\s]+)",
+  "indentationRules": {
+    "increaseIndentPattern": "^((?!;).)*(?:\\{(?:[^}\"]|(\"[^\"]*\"))*|\\((?:[^)\"]|(\"[^\"]*\"))*|\\[(?:[^\\]\"]|(\"[^\"]*\"))*)$",
+    "decreaseIndentPattern": "^\\s*[\\)\\}\\]].*$"
+  },
+  "onEnterRules": [
+    {
+      // Apparently this part of vscode does not support recursive regex
+      // patterns which would be required to make beforeText correct.
+      "beforeText": "^((?!;).)*(?:\\{(?:[^}\"]|(\"[^\"]*\")|\\{[^}]*\\})*|\\((?:[^)\"]|(\"[^\"]*\")|\\([^)]*\\))*|\\[(?:[^\\]\"]|(\"[^\"]*\")|\\[[^\\]]*\\])*)$",
+      // The correct (and incompatible) version (it only supports
+      // parantheses, but could easily be expanded)
+      // "beforeText": "^(?:(?!;).)*(?:\\((?:[^)\"]|(?:\"[^\"]*\")|(\\((?:[^)]|\"[^\"]*\"|(?1))*\\)))*)$",
+      "afterText": "^(?:[\\}\\)\\]]+).*$",
+      "action": {
+        "indent": "indentOutdent"
+      }
+    },
+    // before curly braces braces
+    {
+      "beforeText": "^((?!;).)*(?:\\{(?:[^\\}\"]|(\"[^\"]*\")|\\{(?:[^\\}]|(\"[^\"]*\"))*\\})*)$",
+      "afterText": "^(?:(?:[^\\}\"]|(\"[^\"]*\")|\\{(?:[^\\}]|(\"[^\"]*\"))*\\})*)\\}.*$",
+      "action": {
+        "indent": "indent"
+      }
+    },
+    // before parantheses
+    {
+      "beforeText": "^((?!;).)*(?:\\((?:[^\\)\"]|(\"[^\"]*\")|\\((?:[^\\)]|(\"[^\"]*\"))*\\))*)$",
+      "afterText": "^(?:(?:[^\\)\"]|(\"[^\"]*\")|\\((?:[^\\)]|(\"[^\"]*\"))*\\))*)\\).*$",
+      "action": {
+        "indent": "indent"
+      }
+    },
+    // before square brackets
+    {
+      "beforeText": "^((?!;).)*(?:\\[(?:[^\\]\"]|(\"[^\"]*\")|\\[(?:[^\\]]|(\"[^\"]*\"))*\\])*)$",
+      "afterText": "^(?:(?:[^\\]\"]|(\"[^\"]*\")|\\[(?:[^\\]]|(\"[^\"]*\"))*\\])*)\\].*$",
+      "action": {
+        "indent": "indent"
+      }
+    }
+  ],
+  "folding": {
+    "markers": {
+      "start": "^\\s*;\\s*#region\\b",
+      "end": "^\\s*;\\s*#endregion\\b"
+    }
+  }
 }

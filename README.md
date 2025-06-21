@@ -54,8 +54,10 @@ This extension contributes the following settings:
 None! :)
 
 ## Building
+
 You need to have vsce and Node installed. Make them available with `nix develop` (you need to have Nix installed).
 Then run
+
 ```shell
 mkdir dist
 vsce package -o dist/
@@ -71,51 +73,51 @@ Initial release of the extension.
 
 ### 0.1.0
 
--   Changed line comments from `;;` to single `;`. This seems to fix an issue where
-    bracket pair colorization would colorize brackets in comments.
--   Added default file icon
+- Changed line comments from `;;` to single `;`. This seems to fix an issue where
+  bracket pair colorization would colorize brackets in comments.
+- Added default file icon
 
 ### 0.1.1
 
--   Fixed a lot of syntax grammar issues, including broken quoted lists, and supporting
-    inserting function expressions into quasi-quoted lists, and lots of function
-    parameter list improvements.
+- Fixed a lot of syntax grammar issues, including broken quoted lists, and supporting
+  inserting function expressions into quasi-quoted lists, and lots of function
+  parameter list improvements.
 
 ### 0.2.0
 
--   Add indentation to language config. Pressing enter will now auto indent more
-    often.
--   Improved textmate operator recognition.
+- Add indentation to language config. Pressing enter will now auto indent more
+  often.
+- Improved textmate operator recognition.
 
 ### 0.2.2
 
--   Add syntax grammar support for `@const-start` and `@const-end` (their
-    [documentation](https://github.com/vedderb/bldc/blob/master/lispBM/lispBM/doc/lbmref.md#const-start)).
+- Add syntax grammar support for `@const-start` and `@const-end` (their
+  [documentation](https://github.com/vedderb/bldc/blob/master/lispBM/lispBM/doc/lbmref.md#const-start)).
 
 ### 0.2.3
 
--   Add syntax support for match structure.
--   Fix `<=`, `>=`, and `not-eq` not being recognized as operators.
+- Add syntax support for match structure.
+- Fix `<=`, `>=`, and `not-eq` not being recognized as operators.
 
 ### 0.3.0
 
--   Add custom folding marker comments
--   Fix a lot of indentation issues.
--   Fix unrecognized `true` and `false` constants.
+- Add custom folding marker comments
+- Fix a lot of indentation issues.
+- Fix unrecognized `true` and `false` constants.
 
 ### 0.3.1
 
--   Add support for `@const-symbol-strings`
+- Add support for `@const-symbol-strings`
 
 ### 0.3.2
 
--   Fix escaped characters in strings not being detected.
+- Fix escaped characters in strings not being detected.
 
 ### 0.3.3
 
--   Add support for `read-eval-program`, `undefine`, `import`, and `defunret`.
+- Add support for `read-eval-program`, `undefine`, `import`, and `defunret`.
 
 ### 0.3.4
 
--   Add more operators, like `cdr`
--   Add missing numeric literals
+- Add more operators, like `cdr`
+- Add missing numeric literals

@@ -1,11 +1,11 @@
 {
-    "cSpell.words": [
-        "cond",
-        "defun",
-        "lispbm",
-        "progn",
-        "setq",
-        "treefmt",
-        "vscodeignore"
-    ]
+  "cSpell.words": [
+    "cond",
+    "defun",
+    "lispbm",
+    "progn",
+    "setq",
+    "treefmt",
+    "vscodeignore"
+  ]
 }

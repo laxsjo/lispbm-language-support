@@ -1,758 +1,758 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "LispBM",
-	"patterns": [
-		{
-			"include": "#expressions"
-		},
-		{
-			"include": "#function-lists"
-		},
-		{
-			"include": "#quoted-lists"
-		},
-		{
-			"include": "#decorators"
-		}
-	],
-	"repository": {
-		"expressions": {
-			"patterns": [
-				{
-					"include": "#macro-defs"
-				},
-				{
-					"include": "#defun-defs"
-				},
-				{
-					"include": "#lambda-defs"
-				},
-				{
-					"include": "#keywords"
-				},
-				{
-					"include": "#pseudo-keywords"
-				},
-				{
-					"include": "#operators"
-				},
-				{
-					"include": "#lang-constants"
-				},
-				{
-					"include": "#function-names"
-				},
-				{
-					"include": "#quoted-symbol"
-				},
-				{
-					"include": "#symbol"
-				},
-				{
-					"include": "#strings"
-				},
-				{
-					"include": "#numbers"
-				},
-				{
-					"include": "#hex-numbers"
-				},
-				{
-					"include": "#chars"
-				},
-				{
-					"include": "#let-bindings-lists"
-				},
-				{
-					"include": "#match-lists"
-				},
-				{
-					"include": "#quoted-lists"
-				},
-				{
-					"include": "#lists"
-				},
-				{
-					"include": "#comments"
-				}
-			]
-		},
-		"quoted-expressions": {
-			"patterns": [
-				{
-					"include": "#macro-defs"
-				},
-				{
-					"include": "#defun-defs"
-				},
-				{
-					"include": "#lambda-defs"
-				},
-				{
-					"include": "#inserted-symbols"
-				},
-				{
-					"include": "#keywords"
-				},
-				{
-					"include": "#pseudo-keywords"
-				},
-				{
-					"include": "#operators"
-				},
-				{
-					"include": "#lang-constants"
-				},
-				{
-					"include": "#quoted-symbol"
-				},
-				{
-					"include": "#symbol"
-				},
-				{
-					"include": "#strings"
-				},
-				{
-					"include": "#numbers"
-				},
-				{
-					"include": "#hex-numbers"
-				},
-				{
-					"include": "#chars"
-				},
-				{
-					"include": "#inserted-lists"
-				},
-				{
-					"include": "#quoted-lists"
-				},
-				{
-					"include": "#quoted-child-lists"
-				},
-				{
-					"include": "#comments"
-				}
-			]
-		},
-		"auto-quoted-expressions": {
-			"patterns": [
-				{
-					"include": "#macro-defs"
-				},
-				{
-					"include": "#defun-defs"
-				},
-				{
-					"include": "#lambda-defs"
-				},
-				{
-					"include": "#inserted-symbols"
-				},
-				{
-					"include": "#keywords"
-				},
-				{
-					"include": "#pseudo-keywords"
-				},
-				{
-					"include": "#operators"
-				},
-				{
-					"include": "#lang-constants"
-				},
-				{
-					"include": "#quoted-symbol"
-				},
-				{
-					"include": "#auto-quoted-symbol"
-				},
-				{
-					"include": "#strings"
-				},
-				{
-					"include": "#numbers"
-				},
-				{
-					"include": "#hex-numbers"
-				},
-				{
-					"include": "#chars"
-				},
-				{
-					"include": "#inserted-lists"
-				},
-				{
-					"include": "#quoted-lists"
-				},
-				{
-					"include": "#quoted-child-lists"
-				},
-				{
-					"include": "#comments"
-				}
-			]
-		},
-		"lists": {
-			"name": "meta.list.function.lispbm",
-			"begin": "\\(",
-			"end": "\\)",
-			"beginCaptures": {
-				"0": {
-					"name": "punctuation.paren.begin.lispbm"
-				}
-			},
-			"endCaptures": {
-				"0": {
-					"name": "punctuation.paren.end.lispbm"
-				}
-			},
-			"patterns": [
-				{
-					"include": "#expressions"
-				}
-			]
-		},
-		"quoted-child-lists": {
-			"name": "meta.list.quoted.lispbm",
-			"begin": "\\(",
-			"end": "\\)",
-			"beginCaptures": {
-				"0": {
-					"name": "punctuation.paren.begin.lispbm"
-				}
-			},
-			"endCaptures": {
-				"0": {
-					"name": "punctuation.paren.end.lispbm"
-				}
-			},
-			"patterns": [
-				{
-					"include": "#quoted-expressions"
-				}
-			]
-		},
-		"quoted-lists": {
-			"name": "meta.list.quoted.lispbm",
-			"begin": "(`|')+(\\()",
-			"end": "\\)",
-			"beginCaptures": {
-				"1": {
-					"name": "keyword.operator.quote.lispbm"
-				},
-				"2": {
-					"name": "punctuation.paren.begin.lispbm"
-				}
-			},
-			"endCaptures": {
-				"0": {
-					"name": "punctuation.paren.end.lispbm"
-				}
-			},
-			"patterns": [
-				{
-					"include": "#quoted-expressions"
-				}
-			]
-		},
-		"inserted-lists": {
-			"name": "meta.list.quoted.lispbm",
-			"begin": "(?:(,)|(,@))+(\\()",
-			"end": "\\)",
-			"beginCaptures": {
-				"1": {
-					"name": "keyword.operator.splice.lispbm"
-				},
-				"2": {
-					"name": "keyword.operator.spread.lispbm"
-				},
-				"3": {
-					"name": "punctuation.paren.begin.lispbm"
-				}
-			},
-			"endCaptures": {
-				"0": {
-					"name": "punctuation.paren.end.lispbm"
-				}
-			},
-			"patterns": [
-				{
-					"include": "#expressions"
-				}
-			]
-		},
-		"let-bindings-lists": {
-			"name": "meta.list.let.bindings.lispbm",
-			"begin": "(?<=let\\s+)(\\()",
-			"end": "\\)",
-			"beginCaptures": {
-				"1": {
-					"name": "punctuation.paren.begin.lispbm"
-				}
-			},
-			"endCaptures": {
-				"0": {
-					"name": "punctuation.paren.end.lispbm"
-				}
-			},
-			"patterns": [
-				{
-					"include": "#let-bindings"
-				},
-				{
-					"include": "#comments"
-				}
-			]
-		},
-		"let-bindings": {
-			"name": "meta.list.let.binding.lispbm",
-			"begin": "\\(",
-			"end": "\\)",
-			"beginCaptures": {
-				"0": {
-					"name": "punctuation.paren.begin.lispbm"
-				}
-			},
-			"endCaptures": {
-				"0": {
-					"name": "punctuation.paren.end.lispbm"
-				}
-			},
-			"patterns": [
-				{
-					"begin": "\\s",
-					"end": "(?=\\))",
-					"patterns": [
-						{
-							"include": "#expressions"
-						}
-					]
-				},
-				{
-					"include": "#variable-names"
-				},
-				{
-					"include": "#comments"
-				}
-			]
-		},
-		"variable-names": {
-			"patterns": [
-				{
-					"name": "variable.other.lispbm",
-					"match": "(?<=\\()[a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*(?=$|\\s|\\)|\\])"
-				},
-				{
-					"name": "meta.list.destructured-names.lispbm",
-					"begin": "(?<=\\()\\(",
-					"end": "\\)",
-					"beginCaptures": {
-						"0": {
-							"name": "punctuation.paren.begin.lispbm"
-						}
-					},
-					"endCaptures": {
-						"0": {
-							"name": "punctuation.paren.end.lispbm"
-						}
-					},
-					"patterns": [
-						{
-							"include": "#symbols"
-						},
-						{
-							"include": "#operators"
-						},
-						{
-							"include": "#comments"
-						}
-					]
-				}
-			]
-		},
-		"match-lists": {
-			"name": "meta.list.matches.lispbm",
-			"begin": "(?<=\\(match)\\s+",
-			"end": "(?=\\))",
-			"patterns": [
-				{
-					"begin": "(?<=\\(match\\s+)",
-					"end": "\\s+(?=\\()",
-					"patterns": [
-						{
-							"include": "#expressions"
-						}
-					]
-				},
-				{
-					"include": "#match"
-				},
-				{
-					"include": "#comments"
-				}
-			]
-		},
-		"match": {
-			"name": "meta.structure.match.lispbm",
-			"begin": "\\(",
-			"end": "\\)",
-			"beginCaptures": {
-				"0": {
-					"name": "punctuation.paren.begin.lispbm"
-				}
-			},
-			"endCaptures": {
-				"0": {
-					"name": "punctuation.paren.end.lispbm"
-				}
-			},
-			"patterns": [
-				{
-					"include": "#comments"
-				},
-				{
-					"include": "#match-pattern"
-				},
-				{
-					"include": "#expressions"
-				}
-			]
-		},
-		"match-pattern": {
-			"begin": "(?<=\\()",
-			"end": "\\s",
-			"patterns": [
-				{
-					"include": "#pattern-names"
-				},
-				{
-					"include": "#match-binding"
-				},
-				{
-					"name": "meta.structure.match.destructured.lispbm",
-					"begin": "(?<=\\(\\s*)\\(",
-					"end": "\\)",
-					"beginCaptures": {
-						"0": {
-							"name": "punctuation.paren.begin.lispbm"
-						}
-					},
-					"endCaptures": {
-						"0": {
-							"name": "punctuation.paren.end.lispbm"
-						}
-					},
-					"patterns": [
-						{
-							"include": "#symbols"
-						},
-						{
-							"include": "#operators"
-						},
-						{
-							"include": "#comments"
-						}
-					]
-				}
-			]
-		},
-		"match-binding": {
-			"name": "meta.structure.match.binding.lispbm",
-			"begin": "(?<=\\(\\s*)\\(",
-			"end": "\\)",
-			"beginCaptures": {
-				"0": {
-					"name": "punctuation.paren.begin.lispbm"
-				}
-			},
-			"endCaptures": {
-				"0": {
-					"name": "punctuation.paren.end.lispbm"
-				}
-			},
-			"patterns": [
-				{
-					"include": "#pattern-names"
-				},
-				{
-					"name": "keyword.operator.bind.lispbm",
-					"match": "(?<=\\(\\s*)\\?"
-				},
-				{
-					"include": "#symbol"
-				}
-			]
-		},
-		"pattern-names": {
-			"patterns": [
-				{
-					"name": "keyword.operator.wildcard.lispbm",
-					"match": "(?<=\\()_(?=$|\\s|\\)|\\])"
-				},
-				{
-					"name": "variable.other.constant.lispbm",
-					"match": "(?<=\\()[a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*(?=$|\\s|\\)|\\])"
-				}
-			]
-		},
-		"macro-defs": {
-			"name": "meta.function.macro.lispbm",
-			"begin": "(?<=\\()(macro)",
-			"end": "(?=\\))",
-			"beginCaptures": {
-				"1": {
-					"name": "keyword.control.lispbm"
-				}
-			},
-			"patterns": [
-				{
-					"name": "meta.list.parameters.lispbm",
-					"begin": "(?<=(?:macro)\\s+)(\\()",
-					"end": "\\)",
-					"beginCaptures": {
-						"1": {
-							"name": "punctuation.paren.begin.lispbm"
-						}
-					},
-					"endCaptures": {
-						"0": {
-							"name": "punctuation.paren.end.lispbm"
-						}
-					},
-					"patterns": [
-						{
-							"include": "#parameters"
-						},
-						{
-							"include": "#comments"
-						}
-					]
-				},
-				{
-					"include": "#expressions"
-				}
-			]
-		},
-		"defun-defs": {
-			"name": "meta.function.lispbm",
-			"begin": "(?<=\\()(defun|defunret)\\s",
-			"end": "(?=\\))",
-			"beginCaptures": {
-				"1": {
-					"name": "keyword.control.pseudo.lispbm"
-				}
-			},
-			"patterns": [
-				{
-					"begin": "(?<=(?:defun|defunret)\\s+)([a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*)\\s+(\\()",
-					"end": "\\)",
-					"beginCaptures": {
-						"1": {
-							"name": "entity.name.function.lispbm"
-						},
-						"2": {
-							"name": "punctuation.paren.begin.lispbm"
-						}
-					},
-					"endCaptures": {
-						"0": {
-							"name": "punctuation.paren.end.lispbm"
-						}
-					},
-					"patterns": [
-						{
-							"include": "#parameters"
-						},
-						{
-							"include": "#comments"
-						}
-					]
-				},
-				{
-					"include": "#expressions"
-				}
-			]
-		},
-		"lambda-defs": {
-			"name": "meta.function.lambda.lispbm",
-			"begin": "(?<=\\()(lambda|fn)",
-			"end": "(?=\\))",
-			"beginCaptures": {
-				"1": {
-					"name": "keyword.control.lispbm"
-				}
-			},
-			"patterns": [
-				{
-					"name": "meta.list.parameters.lispbm",
-					"begin": "(?<=(?:lambda|fn)\\s+)(\\()",
-					"end": "\\)",
-					"beginCaptures": {
-						"1": {
-							"name": "punctuation.paren.begin.lispbm"
-						}
-					},
-					"endCaptures": {
-						"0": {
-							"name": "punctuation.paren.end.lispbm"
-						}
-					},
-					"patterns": [
-						{
-							"include": "#parameters"
-						},
-						{
-							"include": "#comments"
-						}
-					]
-				},
-				{
-					"include": "#expressions"
-				}
-			]
-		},
-		"symbol": {
-			"name": "variable.other.lispbm",
-			"match": "(?<=^|\\s|(?:,@?)|\\(|\\[)[a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*(?=$|\\s|\\)|\\])"
-		},
-		"parameters": {
-			"name": "variable.parameter.lispbm",
-			"match": "(?<=^|\\s|(?:,@?)|\\(|\\[)[a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*(?=$|\\s|\\)|\\])"
-		},
-		"quoted-symbol": {
-			"name": "variable.other.constant.lispbm",
-			"match": "(?<=^|\\s|(?:,@?)|\\(|\\[)'+[a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*(?=$|\\s|\\)|\\])"
-		},
-		"auto-quoted-symbol": {
-			"name": "variable.other.constant.lispbm",
-			"match": "(?<=^|\\s|(?:,@?)|\\(|\\[)+[a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*(?=$|\\s|\\)|\\])"
-		},
-		"inserted-symbols": {
-			"match": "(?<=^|\\s|\\(|\\[|\\{)(?:(,)|(,@))+([a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*)(?=$|\\s|\\)|\\]|\\})",
-			"captures": {
-				"1": {
-					"name": "keyword.operator.splice.lispbm"
-				},
-				"2": {
-					"name": "keyword.operator.spread.lispbm"
-				},
-				"3": {
-					"name": "variable.other.lispbm"
-				}
-			}
-		},
-		"function-names": {
-			"name": "entity.name.function.lispbm",
-			"match": "(?<=^|\\()[a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*(?=\\s|\\))"
-		},
-		"keywords": {
-			"name": "keyword.control.special-form.lispbm",
-			"match": "(?<=^|\\s|\\(|\\[)(?:if|lambda|let|var|define|undefine|setvar|set|setq|progn|read|read-program|read-eval-program|match|macro|call-cc|recv|cond)\\b(?=$|\\s|\\)|\\]|\\})"
-		},
-		"pseudo-keywords": {
-			"name": "keyword.control.pseudo.lispbm",
-			"match": "(?<=^|\\s|\\(|\\[)(?:def|defun|defunret|fn|looprange|loopwhile|spawn|spawn-trap|wait|yield|atomic|eval|eval-program|car|cdr|first|rest|cons|list|length|range|append|ix|setix|setcar|setcdr|acons|assoc|cossa|setassoc|array-create|array-size|array-write|array-clear|match|import)(?=$|\\s|\\)|\\]|\\})"
-		},
-		"operators": {
-			"patterns": [
-				{
-					"match": "(?<=^|\\s|\\(|\\[)(?:(=|!=|eq|not-eq)|(and|or|not)|(\\+|-|\\*|\\/|mod)|(\\>\\=|\\<\\=|>|<)|(bitwise-and|bitwise-or|bitwise-xor|bitwise-not)|(shl|shr)|(type-of|\\?))(?=$|\\s|\\)|\\]|\\})",
-					"captures": {
-						"1": {
-							"name": "keyword.operator.comparison.lispbm"
-						},
-						"2": {
-							"name": "keyword.operator.logical.lispbm"
-						},
-						"3": {
-							"name": "keyword.operator.arithmetic.lispbm"
-						},
-						"4": {
-							"name": "keyword.operator.relational.lispbm"
-						},
-						"5": {
-							"name": "keyword.operator.bitwise.logical.lispbm"
-						},
-						"6": {
-							"name": "keyword.operator.bitwise.shift.lispbm"
-						},
-						"7": {
-							"name": "keyword.operator.other.lispbm"
-						}
-					}
-				},
-				{
-					"name": "punctuation.separator.pair.lispbm",
-					"match": "(?<=\\s)\\.(?=\\s)"
-				}
-			]
-		},
-		"strings": {
-			"name": "string.quoted.double.lispbm",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.lispbm",
-					"match": "\\\\[nrt0\"\\\\]"
-				},
-				{
-					"name": "invalid.illegal.lispbm",
-					"match": "\\\\[^nrt0\"\\\\]"
-				}
-			]
-		},
-		"comment": {
-			"name": "so apparently we can't match patterns like /-5/ (but /-5\\./ would work for whatever reason! >:O), causing negative integers to not work... >:("
-		},
-		"numbers": {
-			"name": "constant.numeric.decimal.lispbm",
-			"match": "(?<=^|\\s|\\(|\\[|\\{)(-)?(?:[0-9]+(?:b|u|i|i32|u32|i64|u64)?|[0-9]+(\\.)[0-9]+(?:f32|f64)?)(?=$|\\s|\\)|\\]|\\})",
-			"captures": {
-				"1": {
-					"name": "keyword.operator.math.lispbm"
-				},
-				"2": {
-					"name": "punctuation.separator.dot.decimal.lispbm"
-				}
-			}
-		},
-		"hex-numbers": {
-			"name": "constant.numeric.hex.lispbm",
-			"match": "(?<=^|\\s|\\(|\\[|\\{)(-)?(?:0x[0-9a-fA-F]+(?:u32|u64|i32|i64)?)(?=$|\\s|\\)|\\]|\\})",
-			"captures": {
-				"1": {
-					"name": "keyword.operator.math.lispbm"
-				}
-			}
-		},
-		"chars": {
-			"name": "string.quoted.single.char.lispbm",
-			"match": "(?<=^|\\s|\\(|\\[|\\{)(\\\\#)(?:.|[\\n\\r])(?=$|\\s|\\)|\\]|\\})",
-			"captures": {
-				"1": {
-					"name": "punctuation.definition.char.lispbm"
-				}
-			}
-		},
-		"lang-constants": {
-			"name": "constant.language.lispbm",
-			"match": "\\b(?:t|nil|true|false)\\b"
-		},
-		"comments": {
-			"name": "comment.line.semicolon.lispbm",
-			"match": "(;).*$\n?",
-			"captures": {
-				"1": {
-					"name": "punctuation.definition.comment.lispbm"
-				}
-			}
-		},
-		"decorators": {
-			"name": "entity.name.decorator.lispbm",
-			"match": "^@(const-start|const-end|const-symbol-strings)$\n?"
-		}
-	},
-	"scopeName": "source.lispbm"
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "LispBM",
+  "patterns": [
+    {
+      "include": "#expressions"
+    },
+    {
+      "include": "#function-lists"
+    },
+    {
+      "include": "#quoted-lists"
+    },
+    {
+      "include": "#decorators"
+    }
+  ],
+  "repository": {
+    "expressions": {
+      "patterns": [
+        {
+          "include": "#macro-defs"
+        },
+        {
+          "include": "#defun-defs"
+        },
+        {
+          "include": "#lambda-defs"
+        },
+        {
+          "include": "#keywords"
+        },
+        {
+          "include": "#pseudo-keywords"
+        },
+        {
+          "include": "#operators"
+        },
+        {
+          "include": "#lang-constants"
+        },
+        {
+          "include": "#function-names"
+        },
+        {
+          "include": "#quoted-symbol"
+        },
+        {
+          "include": "#symbol"
+        },
+        {
+          "include": "#strings"
+        },
+        {
+          "include": "#numbers"
+        },
+        {
+          "include": "#hex-numbers"
+        },
+        {
+          "include": "#chars"
+        },
+        {
+          "include": "#let-bindings-lists"
+        },
+        {
+          "include": "#match-lists"
+        },
+        {
+          "include": "#quoted-lists"
+        },
+        {
+          "include": "#lists"
+        },
+        {
+          "include": "#comments"
+        }
+      ]
+    },
+    "quoted-expressions": {
+      "patterns": [
+        {
+          "include": "#macro-defs"
+        },
+        {
+          "include": "#defun-defs"
+        },
+        {
+          "include": "#lambda-defs"
+        },
+        {
+          "include": "#inserted-symbols"
+        },
+        {
+          "include": "#keywords"
+        },
+        {
+          "include": "#pseudo-keywords"
+        },
+        {
+          "include": "#operators"
+        },
+        {
+          "include": "#lang-constants"
+        },
+        {
+          "include": "#quoted-symbol"
+        },
+        {
+          "include": "#symbol"
+        },
+        {
+          "include": "#strings"
+        },
+        {
+          "include": "#numbers"
+        },
+        {
+          "include": "#hex-numbers"
+        },
+        {
+          "include": "#chars"
+        },
+        {
+          "include": "#inserted-lists"
+        },
+        {
+          "include": "#quoted-lists"
+        },
+        {
+          "include": "#quoted-child-lists"
+        },
+        {
+          "include": "#comments"
+        }
+      ]
+    },
+    "auto-quoted-expressions": {
+      "patterns": [
+        {
+          "include": "#macro-defs"
+        },
+        {
+          "include": "#defun-defs"
+        },
+        {
+          "include": "#lambda-defs"
+        },
+        {
+          "include": "#inserted-symbols"
+        },
+        {
+          "include": "#keywords"
+        },
+        {
+          "include": "#pseudo-keywords"
+        },
+        {
+          "include": "#operators"
+        },
+        {
+          "include": "#lang-constants"
+        },
+        {
+          "include": "#quoted-symbol"
+        },
+        {
+          "include": "#auto-quoted-symbol"
+        },
+        {
+          "include": "#strings"
+        },
+        {
+          "include": "#numbers"
+        },
+        {
+          "include": "#hex-numbers"
+        },
+        {
+          "include": "#chars"
+        },
+        {
+          "include": "#inserted-lists"
+        },
+        {
+          "include": "#quoted-lists"
+        },
+        {
+          "include": "#quoted-child-lists"
+        },
+        {
+          "include": "#comments"
+        }
+      ]
+    },
+    "lists": {
+      "name": "meta.list.function.lispbm",
+      "begin": "\\(",
+      "end": "\\)",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.paren.begin.lispbm"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.paren.end.lispbm"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#expressions"
+        }
+      ]
+    },
+    "quoted-child-lists": {
+      "name": "meta.list.quoted.lispbm",
+      "begin": "\\(",
+      "end": "\\)",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.paren.begin.lispbm"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.paren.end.lispbm"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#quoted-expressions"
+        }
+      ]
+    },
+    "quoted-lists": {
+      "name": "meta.list.quoted.lispbm",
+      "begin": "(`|')+(\\()",
+      "end": "\\)",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.operator.quote.lispbm"
+        },
+        "2": {
+          "name": "punctuation.paren.begin.lispbm"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.paren.end.lispbm"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#quoted-expressions"
+        }
+      ]
+    },
+    "inserted-lists": {
+      "name": "meta.list.quoted.lispbm",
+      "begin": "(?:(,)|(,@))+(\\()",
+      "end": "\\)",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.operator.splice.lispbm"
+        },
+        "2": {
+          "name": "keyword.operator.spread.lispbm"
+        },
+        "3": {
+          "name": "punctuation.paren.begin.lispbm"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.paren.end.lispbm"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#expressions"
+        }
+      ]
+    },
+    "let-bindings-lists": {
+      "name": "meta.list.let.bindings.lispbm",
+      "begin": "(?<=let\\s+)(\\()",
+      "end": "\\)",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.paren.begin.lispbm"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.paren.end.lispbm"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#let-bindings"
+        },
+        {
+          "include": "#comments"
+        }
+      ]
+    },
+    "let-bindings": {
+      "name": "meta.list.let.binding.lispbm",
+      "begin": "\\(",
+      "end": "\\)",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.paren.begin.lispbm"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.paren.end.lispbm"
+        }
+      },
+      "patterns": [
+        {
+          "begin": "\\s",
+          "end": "(?=\\))",
+          "patterns": [
+            {
+              "include": "#expressions"
+            }
+          ]
+        },
+        {
+          "include": "#variable-names"
+        },
+        {
+          "include": "#comments"
+        }
+      ]
+    },
+    "variable-names": {
+      "patterns": [
+        {
+          "name": "variable.other.lispbm",
+          "match": "(?<=\\()[a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*(?=$|\\s|\\)|\\])"
+        },
+        {
+          "name": "meta.list.destructured-names.lispbm",
+          "begin": "(?<=\\()\\(",
+          "end": "\\)",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.paren.begin.lispbm"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.paren.end.lispbm"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#symbols"
+            },
+            {
+              "include": "#operators"
+            },
+            {
+              "include": "#comments"
+            }
+          ]
+        }
+      ]
+    },
+    "match-lists": {
+      "name": "meta.list.matches.lispbm",
+      "begin": "(?<=\\(match)\\s+",
+      "end": "(?=\\))",
+      "patterns": [
+        {
+          "begin": "(?<=\\(match\\s+)",
+          "end": "\\s+(?=\\()",
+          "patterns": [
+            {
+              "include": "#expressions"
+            }
+          ]
+        },
+        {
+          "include": "#match"
+        },
+        {
+          "include": "#comments"
+        }
+      ]
+    },
+    "match": {
+      "name": "meta.structure.match.lispbm",
+      "begin": "\\(",
+      "end": "\\)",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.paren.begin.lispbm"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.paren.end.lispbm"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#comments"
+        },
+        {
+          "include": "#match-pattern"
+        },
+        {
+          "include": "#expressions"
+        }
+      ]
+    },
+    "match-pattern": {
+      "begin": "(?<=\\()",
+      "end": "\\s",
+      "patterns": [
+        {
+          "include": "#pattern-names"
+        },
+        {
+          "include": "#match-binding"
+        },
+        {
+          "name": "meta.structure.match.destructured.lispbm",
+          "begin": "(?<=\\(\\s*)\\(",
+          "end": "\\)",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.paren.begin.lispbm"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.paren.end.lispbm"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#symbols"
+            },
+            {
+              "include": "#operators"
+            },
+            {
+              "include": "#comments"
+            }
+          ]
+        }
+      ]
+    },
+    "match-binding": {
+      "name": "meta.structure.match.binding.lispbm",
+      "begin": "(?<=\\(\\s*)\\(",
+      "end": "\\)",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.paren.begin.lispbm"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.paren.end.lispbm"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#pattern-names"
+        },
+        {
+          "name": "keyword.operator.bind.lispbm",
+          "match": "(?<=\\(\\s*)\\?"
+        },
+        {
+          "include": "#symbol"
+        }
+      ]
+    },
+    "pattern-names": {
+      "patterns": [
+        {
+          "name": "keyword.operator.wildcard.lispbm",
+          "match": "(?<=\\()_(?=$|\\s|\\)|\\])"
+        },
+        {
+          "name": "variable.other.constant.lispbm",
+          "match": "(?<=\\()[a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*(?=$|\\s|\\)|\\])"
+        }
+      ]
+    },
+    "macro-defs": {
+      "name": "meta.function.macro.lispbm",
+      "begin": "(?<=\\()(macro)",
+      "end": "(?=\\))",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.lispbm"
+        }
+      },
+      "patterns": [
+        {
+          "name": "meta.list.parameters.lispbm",
+          "begin": "(?<=(?:macro)\\s+)(\\()",
+          "end": "\\)",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.paren.begin.lispbm"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.paren.end.lispbm"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#parameters"
+            },
+            {
+              "include": "#comments"
+            }
+          ]
+        },
+        {
+          "include": "#expressions"
+        }
+      ]
+    },
+    "defun-defs": {
+      "name": "meta.function.lispbm",
+      "begin": "(?<=\\()(defun|defunret)\\s",
+      "end": "(?=\\))",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.pseudo.lispbm"
+        }
+      },
+      "patterns": [
+        {
+          "begin": "(?<=(?:defun|defunret)\\s+)([a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*)\\s+(\\()",
+          "end": "\\)",
+          "beginCaptures": {
+            "1": {
+              "name": "entity.name.function.lispbm"
+            },
+            "2": {
+              "name": "punctuation.paren.begin.lispbm"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.paren.end.lispbm"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#parameters"
+            },
+            {
+              "include": "#comments"
+            }
+          ]
+        },
+        {
+          "include": "#expressions"
+        }
+      ]
+    },
+    "lambda-defs": {
+      "name": "meta.function.lambda.lispbm",
+      "begin": "(?<=\\()(lambda|fn)",
+      "end": "(?=\\))",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.lispbm"
+        }
+      },
+      "patterns": [
+        {
+          "name": "meta.list.parameters.lispbm",
+          "begin": "(?<=(?:lambda|fn)\\s+)(\\()",
+          "end": "\\)",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.paren.begin.lispbm"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.paren.end.lispbm"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#parameters"
+            },
+            {
+              "include": "#comments"
+            }
+          ]
+        },
+        {
+          "include": "#expressions"
+        }
+      ]
+    },
+    "symbol": {
+      "name": "variable.other.lispbm",
+      "match": "(?<=^|\\s|(?:,@?)|\\(|\\[)[a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*(?=$|\\s|\\)|\\])"
+    },
+    "parameters": {
+      "name": "variable.parameter.lispbm",
+      "match": "(?<=^|\\s|(?:,@?)|\\(|\\[)[a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*(?=$|\\s|\\)|\\])"
+    },
+    "quoted-symbol": {
+      "name": "variable.other.constant.lispbm",
+      "match": "(?<=^|\\s|(?:,@?)|\\(|\\[)'+[a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*(?=$|\\s|\\)|\\])"
+    },
+    "auto-quoted-symbol": {
+      "name": "variable.other.constant.lispbm",
+      "match": "(?<=^|\\s|(?:,@?)|\\(|\\[)+[a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*(?=$|\\s|\\)|\\])"
+    },
+    "inserted-symbols": {
+      "match": "(?<=^|\\s|\\(|\\[|\\{)(?:(,)|(,@))+([a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*)(?=$|\\s|\\)|\\]|\\})",
+      "captures": {
+        "1": {
+          "name": "keyword.operator.splice.lispbm"
+        },
+        "2": {
+          "name": "keyword.operator.spread.lispbm"
+        },
+        "3": {
+          "name": "variable.other.lispbm"
+        }
+      }
+    },
+    "function-names": {
+      "name": "entity.name.function.lispbm",
+      "match": "(?<=^|\\()[a-zA-Z+\\-*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*(?=\\s|\\))"
+    },
+    "keywords": {
+      "name": "keyword.control.special-form.lispbm",
+      "match": "(?<=^|\\s|\\(|\\[)(?:if|lambda|let|var|define|undefine|setvar|set|setq|progn|read|read-program|read-eval-program|match|macro|call-cc|recv|cond)\\b(?=$|\\s|\\)|\\]|\\})"
+    },
+    "pseudo-keywords": {
+      "name": "keyword.control.pseudo.lispbm",
+      "match": "(?<=^|\\s|\\(|\\[)(?:def|defun|defunret|fn|looprange|loopwhile|spawn|spawn-trap|wait|yield|atomic|eval|eval-program|car|cdr|first|rest|cons|list|length|range|append|ix|setix|setcar|setcdr|acons|assoc|cossa|setassoc|array-create|array-size|array-write|array-clear|match|import)(?=$|\\s|\\)|\\]|\\})"
+    },
+    "operators": {
+      "patterns": [
+        {
+          "match": "(?<=^|\\s|\\(|\\[)(?:(=|!=|eq|not-eq)|(and|or|not)|(\\+|-|\\*|\\/|mod)|(\\>\\=|\\<\\=|>|<)|(bitwise-and|bitwise-or|bitwise-xor|bitwise-not)|(shl|shr)|(type-of|\\?))(?=$|\\s|\\)|\\]|\\})",
+          "captures": {
+            "1": {
+              "name": "keyword.operator.comparison.lispbm"
+            },
+            "2": {
+              "name": "keyword.operator.logical.lispbm"
+            },
+            "3": {
+              "name": "keyword.operator.arithmetic.lispbm"
+            },
+            "4": {
+              "name": "keyword.operator.relational.lispbm"
+            },
+            "5": {
+              "name": "keyword.operator.bitwise.logical.lispbm"
+            },
+            "6": {
+              "name": "keyword.operator.bitwise.shift.lispbm"
+            },
+            "7": {
+              "name": "keyword.operator.other.lispbm"
+            }
+          }
+        },
+        {
+          "name": "punctuation.separator.pair.lispbm",
+          "match": "(?<=\\s)\\.(?=\\s)"
+        }
+      ]
+    },
+    "strings": {
+      "name": "string.quoted.double.lispbm",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.lispbm",
+          "match": "\\\\[nrt0\"\\\\]"
+        },
+        {
+          "name": "invalid.illegal.lispbm",
+          "match": "\\\\[^nrt0\"\\\\]"
+        }
+      ]
+    },
+    "comment": {
+      "name": "so apparently we can't match patterns like /-5/ (but /-5\\./ would work for whatever reason! >:O), causing negative integers to not work... >:("
+    },
+    "numbers": {
+      "name": "constant.numeric.decimal.lispbm",
+      "match": "(?<=^|\\s|\\(|\\[|\\{)(-)?(?:[0-9]+(?:b|u|i|i32|u32|i64|u64)?|[0-9]+(\\.)[0-9]+(?:f32|f64)?)(?=$|\\s|\\)|\\]|\\})",
+      "captures": {
+        "1": {
+          "name": "keyword.operator.math.lispbm"
+        },
+        "2": {
+          "name": "punctuation.separator.dot.decimal.lispbm"
+        }
+      }
+    },
+    "hex-numbers": {
+      "name": "constant.numeric.hex.lispbm",
+      "match": "(?<=^|\\s|\\(|\\[|\\{)(-)?(?:0x[0-9a-fA-F]+(?:u32|u64|i32|i64)?)(?=$|\\s|\\)|\\]|\\})",
+      "captures": {
+        "1": {
+          "name": "keyword.operator.math.lispbm"
+        }
+      }
+    },
+    "chars": {
+      "name": "string.quoted.single.char.lispbm",
+      "match": "(?<=^|\\s|\\(|\\[|\\{)(\\\\#)(?:.|[\\n\\r])(?=$|\\s|\\)|\\]|\\})",
+      "captures": {
+        "1": {
+          "name": "punctuation.definition.char.lispbm"
+        }
+      }
+    },
+    "lang-constants": {
+      "name": "constant.language.lispbm",
+      "match": "\\b(?:t|nil|true|false)\\b"
+    },
+    "comments": {
+      "name": "comment.line.semicolon.lispbm",
+      "match": "(;).*$\n?",
+      "captures": {
+        "1": {
+          "name": "punctuation.definition.comment.lispbm"
+        }
+      }
+    },
+    "decorators": {
+      "name": "entity.name.decorator.lispbm",
+      "match": "^@(const-start|const-end|const-symbol-strings)$\n?"
+    }
+  },
+  "scopeName": "source.lispbm"
 }
