@@ -84,3 +84,4 @@ All notable changes to the "lispbm-language-support" extension will be documente
 
 - Fix symbols which start with a builtin symbol being highlighted incorrectly
   (e.g. the symbol `notice` would be highlighted as the builtin `not` followed by a generic `ice` symbol).
+- Support strings and numbers in match patterns.

@@ -128,3 +128,4 @@ Initial release of the extension.
 ### 0.3.5
 
 - Fix bug causing incorrect symbol highlighting
+- Support strings and numbers in match patterns

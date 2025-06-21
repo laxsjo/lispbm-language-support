@@ -430,6 +430,12 @@
           "include": "#match-binding"
         },
         {
+          "include": "#numbers"
+        },
+        {
+          "include": "#strings"
+        },
+        {
           "name": "meta.structure.match.destructured.lispbm",
           "begin": "(?<=\\(\\s*)\\(",
           "end": "\\)",
@@ -449,6 +455,12 @@
             },
             {
               "include": "#operators"
+            },
+            {
+              "include": "#numbers"
+            },
+            {
+              "include": "#strings"
             },
             {
               "include": "#comments"
@@ -481,6 +493,12 @@
         },
         {
           "include": "#symbol"
+        },
+        {
+          "include": "#numbers"
+        },
+        {
+          "include": "#strings"
         }
       ]
     },
