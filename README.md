@@ -129,3 +129,5 @@ Initial release of the extension.
 
 - Fix bug causing incorrect symbol highlighting
 - Support strings and numbers in match patterns
+- Support the ".lbm" extension
+- Remove the ".lispbm" extension

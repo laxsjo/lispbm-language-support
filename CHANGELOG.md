@@ -85,3 +85,5 @@ All notable changes to the "lispbm-language-support" extension will be documente
 - Fix symbols which start with a builtin symbol being highlighted incorrectly
   (e.g. the symbol `notice` would be highlighted as the builtin `not` followed by a generic `ice` symbol).
 - Support strings and numbers in match patterns.
+- Add support for the ".lbm" extension.
+- Remove support for the ".lispbm" extension. This was never used anywhere, and isn't supported by VESC Tool.

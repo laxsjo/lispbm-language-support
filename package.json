@@ -20,8 +20,8 @@
           "lispbm"
         ],
         "extensions": [
-          ".lisp",
-          ".lispbm"
+          ".lbm",
+          ".lisp"
         ],
         "configuration": "./language-configuration.json",
         "icon": {
