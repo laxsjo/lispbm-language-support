@@ -1,3 +1,5 @@
+Temp README
+
 # LispBM language support
 
 This brings basic language support for the lispBM language to vscode.
@@ -22,7 +24,7 @@ Custom folding ranges can be specified using comments. Start the range with a
 Custom text after `#region` and `#endregion` is allowed.
 Example:
 
-```lisp
+```clj
 ;#region My Optional Region
 
 ; This can be folded :)
@@ -55,7 +57,8 @@ None! :)
 
 ## Building
 
-You need to have vsce and Node installed. Make them available with `nix develop` (you need to have Nix installed).
+You need to have vsce installed (sorry don't feel like writing a guide for that
+currently .\_.).
 Then run
 
 ```shell
@@ -121,3 +124,7 @@ Initial release of the extension.
 
 - Add more operators, like `cdr`
 - Add missing numeric literals
+
+### 0.3.5
+
+- Fix bug causing incorrect symbol highlighting
