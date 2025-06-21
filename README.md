@@ -54,8 +54,7 @@ This extension contributes the following settings:
 None! :)
 
 ## Building
-You need to have vsce installed (sorry don't feel like writing a guide for that
-currently .\_.).
+You need to have vsce and Node installed. Make them available with `nix develop` (you need to have Nix installed).
 Then run
 ```shell
 mkdir dist

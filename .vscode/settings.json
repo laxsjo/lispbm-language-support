@@ -4,6 +4,8 @@
         "defun",
         "lispbm",
         "progn",
-        "setq"
+        "setq",
+        "treefmt",
+        "vscodeignore"
     ]
 }
