@@ -58,7 +58,8 @@ You need to have vsce installed (sorry don't feel like writing a guide for that
 currently .\_.).
 Then run
 ```shell
-vsce package -o build/
+mkdir dist
+vsce package -o dist/
 ```
 
 ## Release Notes
