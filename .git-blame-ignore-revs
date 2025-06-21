@@ -1,0 +1,5 @@
+# You can configure git to automatically use this file with the following config:
+# git config set --local blame.ignoreRevsFile .git-blame-ignore-revs
+
+# Run `nix fmt`
+a5265a3ff7f1717330fb0adb78f4a3d293af0d94
