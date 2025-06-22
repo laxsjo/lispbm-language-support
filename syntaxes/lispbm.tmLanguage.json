@@ -666,11 +666,11 @@
     },
     "keywords": {
       "name": "keyword.control.special-form.lispbm",
-      "match": "(?<=^|\\s|\\(|\\[)(?:if|lambda|let|var|define|undefine|setvar|set|setq|progn|read|read-program|read-eval-program|match|macro|call-cc|recv|cond)\\b(?=$|\\s|\\)|\\]|\\})"
+      "match": "(?<=^|\\s|\\(|\\[)(?:atomic|call-cc|cond|def|define|fn|if|lambda|let|macro|match|progn|recv|setq|var|defun|defunret|looprange|loopwhile)\\b(?=$|\\s|\\)|\\]|\\})"
     },
     "pseudo-keywords": {
       "name": "keyword.control.pseudo.lispbm",
-      "match": "(?<=^|\\s|\\(|\\[)(?:def|defun|defunret|fn|looprange|loopwhile|spawn|spawn-trap|wait|yield|atomic|eval|eval-program|car|cdr|first|rest|cons|list|length|range|append|ix|setix|setcar|setcdr|acons|assoc|cossa|setassoc|array-create|array-size|array-write|array-clear|match|import)(?=$|\\s|\\)|\\]|\\})"
+      "match": "(?<=^|\\s|\\(|\\[)(?:acons|append|array-clear|array-create|array-size|array-write|assoc|car|cdr|cons|cossa|eval|eval-program|first|import|ix|length|list|range|read|read-eval-program|read-program|rest|set|setassoc|setcar|setcdr|setix|setvar|spawn|spawn-trap|undefine|wait|yield)(?=$|\\s|\\)|\\]|\\})"
     },
     "operators": {
       "patterns": [
