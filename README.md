@@ -131,3 +131,7 @@ Initial release of the extension.
 - Support strings and numbers in match patterns
 - Support the ".lbm" extension
 - Remove the ".lispbm" extension
+
+### 0.3.6
+
+- Add missing special forms

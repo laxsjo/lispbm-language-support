@@ -666,7 +666,7 @@
     },
     "keywords": {
       "name": "keyword.control.special-form.lispbm",
-      "match": "(?<=^|\\s|\\(|\\[)(?:atomic|call-cc|cond|def|define|fn|if|lambda|let|macro|match|progn|recv|setq|var|defun|defunret|looprange|loopwhile)\\b(?=$|\\s|\\)|\\]|\\})"
+      "match": "(?<=^|\\s|\\(|\\[)(?:atomic|call-cc|call-cc-unsafe|closure|cond|def|define|fn|if|lambda|let|loop|macro|match|move-to-flash|progn|quote|recv|recv-to|setq|trap|var|defun|defunret|loopfor|loopforeach|looprange|loopwhile)\\b(?=$|\\s|\\)|\\]|\\})"
     },
     "pseudo-keywords": {
       "name": "keyword.control.pseudo.lispbm",

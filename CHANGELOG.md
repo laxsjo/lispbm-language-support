@@ -87,3 +87,16 @@ All notable changes to the "lispbm-language-support" extension will be documente
 - Support strings and numbers in match patterns.
 - Add support for the ".lbm" extension.
 - Remove support for the ".lispbm" extension. This was never used anywhere, and isn't supported by VESC Tool.
+
+### 0.3.6
+
+- Add support for missing special forms:
+  - `call-cc-unsafe`
+  - `closure`
+  - `loop`
+  - `move-to-flash`
+  - `quote`
+  - `recv-to`
+  - `trap`
+  - `loopfor`
+  - `loopforeach`
