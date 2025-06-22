@@ -135,3 +135,4 @@ Initial release of the extension.
 ### 0.3.6
 
 - Add missing special forms
+- Fix negative integer parsing
