@@ -101,3 +101,5 @@ All notable changes to the "lispbm-language-support" extension will be documente
   - `loopfor`
   - `loopforeach`
 - Fix negative integer being parsed as symbols.
+
+### 0.3.7

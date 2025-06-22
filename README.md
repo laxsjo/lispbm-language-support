@@ -136,3 +136,5 @@ Initial release of the extension.
 
 - Add missing special forms
 - Fix negative integer parsing
+
+### 0.3.7
