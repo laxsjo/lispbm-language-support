@@ -554,7 +554,7 @@
     },
     "defun-defs": {
       "name": "meta.function.lispbm",
-      "begin": "(?<=\\()(defun|defunret)\\s",
+      "begin": "(?<=\\()(defun|defunret|defmacro)\\s",
       "end": "(?=\\))",
       "beginCaptures": {
         "1": {
@@ -563,7 +563,7 @@
       },
       "patterns": [
         {
-          "begin": "(?<=(?:defun|defunret)\\s+)((?:[a-zA-Z+*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*|-[a-zA-Z+\\-*/=<>!?][a-zA-Z0-9+\\-*/=<>!?]*))\\s+(\\()",
+          "begin": "(?<=(?:defun|defunret|defmacro)\\s+)((?:[a-zA-Z+*/=<>#][a-zA-Z0-9+\\-*/=<>!?]*|-[a-zA-Z+\\-*/=<>!?][a-zA-Z0-9+\\-*/=<>!?]*))\\s+(\\()",
           "end": "\\)",
           "beginCaptures": {
             "1": {
@@ -666,7 +666,7 @@
     },
     "keywords": {
       "name": "keyword.control.special-form.lispbm",
-      "match": "(?<=^|\\s|\\(|\\[)(?:atomic|call-cc|call-cc-unsafe|closure|cond|def|define|fn|if|lambda|let|loop|macro|match|move-to-flash|progn|quote|recv|recv-to|setq|trap|var|defun|defunret|loopfor|loopforeach|looprange|loopwhile)\\b(?=$|\\s|\\)|\\]|\\})"
+      "match": "(?<=^|\\s|\\(|\\[)(?:atomic|call-cc|call-cc-unsafe|closure|cond|def|define|fn|if|lambda|let|loop|macro|match|move-to-flash|progn|quote|recv|recv-to|setq|trap|var|defun|defunret|defmacro|loopfor|loopforeach|looprange|loopwhile)\\b(?=$|\\s|\\)|\\]|\\})"
     },
     "pseudo-keywords": {
       "name": "keyword.control.pseudo.lispbm",

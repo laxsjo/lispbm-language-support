@@ -138,3 +138,5 @@ Initial release of the extension.
 - Fix negative integer parsing
 
 ### 0.3.7
+
+- Add support for `defmacro`
