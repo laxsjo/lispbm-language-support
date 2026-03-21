@@ -36,20 +36,37 @@ Example:
 
 ## Requirements
 
-This extension has no requirements, just install and enjoy! :)
+- A serial port accessible to the OS (e.g. `/dev/ttyUSB0` on Linux, `COM3` on Windows)
+- A device running LispBM with the VESC packet protocol interface (e.g. the ESP32C3 example from the LispBM repository)
+
+## Device Integration
+
+Version 0.4.0 adds direct communication with LispBM devices over serial using the VESC packet protocol.
+
+When a `.lbm` or `.lisp` file is open, a row of buttons appears in the editor title bar:
+
+| Button | Command | Description |
+|--------|---------|-------------|
+| `plug` | Connect | Connect to a serial port |
+| `disconnect` | Disconnect | Close the serial connection |
+| `cloud-upload` | Upload | Stream the current file to the device |
+| `play` | Evaluate | Evaluate an expression on the device |
+| `refresh` | Reset | Restart the LispBM evaluator |
+| `pause` | Pause | Pause the evaluator |
+| `continue` | Continue | Resume the evaluator |
+| `pulse` | Stats | Show heap and memory usage |
+
+Device output (print statements and REPL results) appears in the **LispBM** output channel.
+
+All commands are also available via `Ctrl+Shift+P` → `LispBM: ...`.
 
 ## Extension Settings
 
-There are no settings for this extension.
-
-<!-- Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something. -->
+| Setting | Default | Description |
+|---------|---------|-------------|
+| `lispbm.serialPort` | *(prompt on connect)* | Serial port path, e.g. `/dev/ttyUSB0` |
+| `lispbm.baudRate` | `115200` | Baud rate for the serial connection |
+| `lispbm.streamChunkSize` | `256` | Chunk size in bytes when uploading code |
 
 ## Known Issues
 
@@ -57,14 +74,12 @@ None! :)
 
 ## Building
 
-You need to have vsce installed (sorry don't feel like writing a guide for that
-currently .\_.).
-Then run
-
 ```shell
-mkdir dist
-vsce package -o dist/
+make          # compile TypeScript
+make package  # produce a .vsix installable package
 ```
+
+Install the resulting `.vsix` via Extensions panel → `...` → **Install from VSIX...**
 
 ## Release Notes
 
@@ -140,3 +155,11 @@ Initial release of the extension.
 ### 0.3.7
 
 - Add support for `defmacro`
+
+### 0.4.0
+
+- Connect to Devices that run the VESC Packet interface over serial
+- Stream programs to device 
+- Evaluate expressions on device
+- Tested on the esp32c3-packet example in the lispBM repo. May also
+  be compatible with vesc express and vesc devices but untested.
