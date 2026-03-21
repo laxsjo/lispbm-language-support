@@ -1,9 +1,9 @@
 {
   "name": "lispbm-language-support",
   "displayName": "lispBM language support",
-  "description": "Adds support for the lispBM language. Don't put to much faith into this project.",
+  "description": "LispBM language support with device integration via VESC packet protocol",
   "publisher": "rasmus-soderhielm",
-  "version": "0.3.7",
+  "version": "0.4.0",
   "engines": {
     "vscode": "^1.76.0"
   },
@@ -11,6 +11,10 @@
     "Programming Languages"
   ],
   "icon": "images/icon.png",
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onLanguage:lispbm"
+  ],
   "contributes": {
     "languages": [
       {
@@ -36,7 +40,127 @@
         "scopeName": "source.lispbm",
         "path": "./syntaxes/lispbm.tmLanguage.json"
       }
-    ]
+    ],
+    "commands": [
+      {
+        "command": "lispbm.connect",
+        "title": "LispBM: Connect to Device",
+        "icon": "$(plug)"
+      },
+      {
+        "command": "lispbm.disconnect",
+        "title": "LispBM: Disconnect",
+        "icon": "$(debug-disconnect)"
+      },
+      {
+        "command": "lispbm.upload",
+        "title": "LispBM: Upload File to Device",
+        "icon": "$(cloud-upload)"
+      },
+      {
+        "command": "lispbm.eval",
+        "title": "LispBM: Evaluate Expression",
+        "icon": "$(play)"
+      },
+      {
+        "command": "lispbm.reset",
+        "title": "LispBM: Reset Device",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "lispbm.pause",
+        "title": "LispBM: Pause Evaluator",
+        "icon": "$(debug-pause)"
+      },
+      {
+        "command": "lispbm.continue",
+        "title": "LispBM: Continue Evaluator",
+        "icon": "$(debug-continue)"
+      },
+      {
+        "command": "lispbm.stats",
+        "title": "LispBM: Show Memory Stats",
+        "icon": "$(pulse)"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "lispbm.upload",
+          "when": "editorLangId == lispbm",
+          "group": "navigation@1"
+        },
+        {
+          "command": "lispbm.eval",
+          "when": "editorLangId == lispbm",
+          "group": "navigation@2"
+        },
+        {
+          "command": "lispbm.reset",
+          "when": "editorLangId == lispbm",
+          "group": "navigation@3"
+        },
+        {
+          "command": "lispbm.pause",
+          "when": "editorLangId == lispbm",
+          "group": "navigation@4"
+        },
+        {
+          "command": "lispbm.continue",
+          "when": "editorLangId == lispbm",
+          "group": "navigation@5"
+        },
+        {
+          "command": "lispbm.stats",
+          "when": "editorLangId == lispbm",
+          "group": "navigation@6"
+        },
+        {
+          "command": "lispbm.connect",
+          "when": "editorLangId == lispbm",
+          "group": "navigation@7"
+        },
+        {
+          "command": "lispbm.disconnect",
+          "when": "editorLangId == lispbm",
+          "group": "navigation@8"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "LispBM",
+      "properties": {
+        "lispbm.serialPort": {
+          "type": "string",
+          "default": "",
+          "description": "Serial port path (e.g. /dev/ttyUSB0 or COM3). Leave empty to be prompted on connect."
+        },
+        "lispbm.baudRate": {
+          "type": "number",
+          "default": 115200,
+          "description": "Baud rate for the serial connection."
+        },
+        "lispbm.streamChunkSize": {
+          "type": "number",
+          "default": 256,
+          "description": "Chunk size in bytes when streaming code to the device."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/vscode": "^1.76.0",
+    "@vscode/vsce": "^3.7.1",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "serialport": "^12.0.0"
   },
   "repository": {
     "type": "git",
