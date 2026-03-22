@@ -12,9 +12,6 @@
   ],
   "icon": "images/icon.png",
   "main": "./out/extension.js",
-  "activationEvents": [
-    "onLanguage:lispbm"
-  ],
   "contributes": {
     "languages": [
       {
