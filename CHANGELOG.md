@@ -105,3 +105,11 @@ All notable changes to the "lispbm-language-support" extension will be documente
 ### 0.3.7
 
 - Add support for `defmacro`.
+
+### 0.4.0
+
+- Connect to Devices that run the VESC Packet interface over serial
+- Stream programs to device 
+- Evaluate expressions on device
+- Tested on the esp32c3-packet example in the lispBM repo. May also
+  be compatible with vesc express and vesc devices but untested.
